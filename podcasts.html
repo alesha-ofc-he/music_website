@@ -3,9 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Podcasts</title>
+
+    <style>
+        .full-width-bar {
+            width: 100%;
+            background-color: #d0d0d0;
+            height: 30px;
+        }
+        .website_name {
+            width: 100%;
+            background-color: #d0d0d0;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu nav {
+            margin-left: 20px;
+        }
+        .menu nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .account-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .podcast-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .podcast-item {
+            width: 45%;
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .podcast-item h3 {
+            margin: 0 0 10px 0;
+        }
+        .podcast-item p {
+            margin: 0;
+        }
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
     
+    <div class="full-width-bar top-bar"></div>
+    <header class="website_name">Podcasts</header>
+    <header class="menu">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="podcasts.html">Podcasts</a>
+            <a href="collections.html">Collections</a>
+        </nav>
+        <a href="account.html" class="account-link">Account</a>
+    </header>
+    
+    <div class="full-width-bar second-bar"></div>
+    
+    <main class="main-content">
+        <section>
+            <h2>Popular Podcasts</h2>
+            <div class="podcast-list">
+                <div class="podcast-item">
+                    <h3>Dope Söz: Zhomart Aralbaiuly</h3>
+                    <p>A Kazakh podcast that discusses both the past and the present.</p>
+                    <audio controls>
+                        <source src="audio/podcast1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="podcast-item">
+                    <h3>Zamandas</h3>
+                    <p>Zamandas is our view of the modern world, where we not only listen carefully to our guests and their stories, but also express our opinions.</p>
+                    <audio controls>
+                        <source src="audio/podcast2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="podcast-item">
+                    <h3>nFactorial Podcast</h3>
+                    <p>DWeekly conversations between nFactorial School founder Arman Suleimenov and inspiring professionals from different industries.</p>
+                    <audio controls>
+                        <source src="audio/podcast3.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="podcast-item">
+                    <h3>Narikbi LIVE</h3>
+                    <p>A podcast that contributes to the spiritual and intellectual development of the youth of Kazakhstan and helps define the values ​​of life.</p>
+                    <audio controls>
+                        <source src="audio/podcast4.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="full-width-bar bottom-bar"></div>
+    
+    <footer>
+        <p>Page created by Yeskendir</p>
+        <p>Date: 09.09.2024</p>
+    </footer>
 </body>
 </html>
