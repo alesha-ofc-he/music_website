@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player - Collections</title>
+
+    <style>
+        .full-width-bar {
+            width: 100%;
+            background-color: #d0d0d0;
+            height: 30px;
+        }
+        .website_name {
+            width: 100%;
+            background-color: #d0d0d0;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .account-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .song-list {
+            margin-bottom: 40px;
+        }
+        .song-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .song-item span {
+            margin-right: 20px;
+        }
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="full-width-bar top-bar"></div>
+    <header class="website_name">Music Player</header>
+    <header class="menu">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="podcasts.html">Podcasts</a>
+            <a href="collections.html">Collections</a>
+        </nav>
+        <a href="account.html" class="account-link">Account</a>
+    </header>
+
+    <main class="main-content">
+        <section class="song-list">
+            <h2>Мои любимые песни</h2>
+            <div class="song-item">
+                <span>1. Song Title 1</span>
+                <span>3:45</span>
+                <audio controls>
+                    <source src="music_website/audio/song1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="song-item">
+                <span>2. Song Title 2</span>
+                <span>4:20</span>
+                <audio controls>
+                    <source src="audio/song2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="song-item">
+                <span>3. Song Title 3</span>
+                <span>2:58</span>
+                <audio controls>
+                    <source src="audio/song3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </section>
+
+        <section class="song-list">
+            <h2>Популярные песни 2000-х</h2>
+            <div class="song-item">
+                <span>1. Hit Song 1</span>
+                <span>4:00</span>
+                <audio controls>
+                    <source src="audio/hit1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="song-item">
+                <span>2. Hit Song 2</span>
+                <span>3:50</span>
+                <audio controls>
+                    <source src="audio/hit2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="song-item">
+                <span>3. Hit Song 3</span>
+                <span>5:15</span>
+                <audio controls>
+                    <source src="audio/hit3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </section>
+    </main>
+
+    <div class="full-width-bar bottom-bar"></div>
+
+    <footer>
+        <p>Page created by Mere mad</p>
+        <p>Date: 09.09.2024</p>
+    </footer>
+
+</body>
+</html>
