@@ -3,9 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Audiobooks</title>
+
+    <style>
+        .full-width-bar {
+            width: 100%;
+            background-color: #d0d0d0;
+            height: 30px;
+        }
+        .website_name {
+            width: 100%;
+            background-color: #d0d0d0;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu nav {
+            margin-left: 20px;
+        }
+        .menu nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .account-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .audiobook-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .audiobook-item {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .settings-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .audiobook-item h3 {
+            margin: 10px 0;
+        }
+        .audiobook-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .audiobook-item p {
+            margin: 10px 0;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
     
+    <div class="full-width-bar top-bar"></div>
+    <header class="website_name">Audiobooks</header>
+    <header class="menu">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="podcasts.html">Podcasts</a>
+            <a href="audiobooks.html">Audiobooks</a>
+            <a href="collections.html">Collections</a>
+        </nav>
+        <div>
+            <!-- link to settingss page-->
+            <a href="settings.html" class="settings-link">Settings</a>
+            <!-- link to account page-->
+            <a href="account.html" class="account-link">Account</a>
+        </div>
+    </header>
+    
+    <div class="full-width-bar second-bar"></div>
+    
+    <main class="main-content">
+        <section>
+            <h2>Popular Audiobooks</h2>
+            <div class="audiobook-list">
+                <div class="audiobook-item">
+                    <h3>Pride and Prejudice</h3>
+                    <p>A classic romance and satire on societal expectations in early 19th-century England. It follows the life of Elizabeth Bennet as she navigates issues of class, marriage, and morality, while clashing with the wealthy and mysterious Mr. Darcy.</p>
+                    <audio controls>
+                        <source src="audio/audiobook1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audiobook-item">
+                    <h3>Metamorphosis</h3>
+                    <p>A surreal novella about Gregor Samsa, who wakes up one morning to find himself transformed into a giant insect. It explores themes of isolation, alienation, and the human condition.</p>
+                    <audio controls>
+                        <source src="audio/audiobook2.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audiobook-item">
+                    <h3>Crime and Punishment</h3>
+                    <p>A philosophical exploration of morality, guilt, and redemption. It tells the story of Raskolnikov, a young man in St. Petersburg, who commits a crime and struggles with the psychological consequences.</p>
+                    <audio controls>
+                        <source src="audio/audiobook3636.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audiobook-item">
+                    <h3>The Path of Abai</h3>
+                    <p>A historical novel about the life and legacy of the Kazakh poet and philosopher Abai Kunanbaev. It reflects on cultural and social changes in Kazakh society during the 19th century.</p>
+                    <audio controls>
+                        <source src="audio/audiobook4.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audiobook-item">
+                    <h3>Nomads</h3>
+                    <p>A trilogy that provides an epic view of Kazakh history, focusing on the struggles of nomadic tribes in the steppes of Central Asia. It portrays the endurance and identity of Kazakh people through centuries of conflict and change.</p>
+                    <audio controls>
+                        <source src="audio/audiobook5.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audiobook-item">
+                    <h3>The Silent Steppe</h3>
+                    <p>A memoir detailing the life of a Kazakh boy growing up in the harsh conditions of Soviet collectivization in the 1930s. It’s a powerful story of resilience and survival amidst political oppression.</p>
+                    <audio controls>
+                        <source src="audio/audiobook6.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="full-width-bar bottom-bar"></div>
+    
+    <footer>
+        <p>Page created by Yeskendir</p>
+        <p>Date: 09.09.2024</p>
+    </footer>
 </body>
 </html>

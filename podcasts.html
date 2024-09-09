@@ -27,6 +27,11 @@
             justify-content: space-between;
             align-items: center;
         }
+        .settings-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
         .menu nav {
             margin-left: 20px;
         }
@@ -86,11 +91,21 @@
     <header class="website_name">Podcasts</header>
     <header class="menu">
         <nav>
+            <!-- link to main page-->
             <a href="index.html">Home</a>
+            <!-- link to podcasts page-->
             <a href="podcasts.html">Podcasts</a>
+            <!-- link to audiobooks page-->
+            <a href="audiobooks.html">Audiobooks</a>
+            <!-- link to collections page-->
             <a href="collections.html">Collections</a>
         </nav>
-        <a href="account.html" class="account-link">Account</a>
+        <div>
+            <!-- link to settingss page-->
+            <a href="settings.html" class="settings-link">Settings</a>
+            <!-- link to account page-->
+            <a href="account.html" class="account-link">Account</a>
+        </div>
     </header>
     
     <div class="full-width-bar second-bar"></div>
@@ -109,7 +124,7 @@
                 </div>
                 <div class="podcast-item">
                     <h3>Zamandas</h3>
-                    <p>Zamandas is our view of the modern world, where we not only listen carefully to our guests and their stories, but also express our opinions.</p>
+                    <p>Zamandas is our view of modern world, where we not only listen carefully to our guests and their stories, but also express our opinions.</p>
                     <audio controls>
                         <source src="audio/podcast2.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
