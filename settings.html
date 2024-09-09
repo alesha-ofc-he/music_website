@@ -4,81 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player - Settings</title>
+    <style>
+        .full-width-bar {
+            width: 100%;
+            background-color: #d0d0d0;
+            height: 30px;
+        }
+        .website_name {
+            width: 100%;
+            background-color: #d0d0d0;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu nav {
+            margin-left: 20px;
+        }
+        .menu nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .account-link,
+        .settings-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .audio-player {
+            width: 100vw;
+            background-color: #e0e0e0;
+            padding: 10px 0;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Верхняя полоса -->
-    <div style="width: 100%; background-color: #d0d0d0; height: 30px;"></div>
+    <div class="full-width-bar"></div>
 
     <!-- Шапка сайта -->
-    <header style="width: 100%; background-color: #d0d0d0; text-align: center; padding: 15px 0; font-size: 24px;">
+    <header class="website_name">
         Music Player - Settings
     </header>
 
     <!-- Меню -->
-    <header style="background-color: #333; color: #fff; text-align: center; padding: 10px 0; display: flex; justify-content: space-between; align-items: center;">
-        <nav style="margin-left: 20px;">
-            <a href="index.html" style="margin: 0 15px; text-decoration: none; color: #fff;">Home</a>
-            <a href="podcasts.html" style="margin: 0 15px; text-decoration: none; color: #fff;">Podcasts</a>
-            <a href="collections.html" style="margin: 0 15px; text-decoration: none; color: #fff;">Collections</a>
+    <header class="menu">
+        <nav>
+            <!-- link to main page-->
+            <a href="index.html">Home</a>
+            <!-- link to podcasts page-->
+            <a href="podcasts.html">Podcasts</a>
+            <!-- link to audiobooks page-->
+            <a href="audiobooks.html">Audiobooks</a>
+            <!-- link to collections page-->
+            <a href="collections.html">Collections</a>
         </nav>
-        <a href="account.html" style="margin-right: 20px; text-decoration: none; color: #fff;">Account</a>
+        <div>
+            <!-- link to settings page-->
+            <a href="settings.html" class="settings-link">Settings</a>
+            <!-- link to account page-->
+            <a href="account.html" class="account-link">Account</a>
+        </div>
     </header>
 
+    <div class="full-width-bar second-bar"></div>
+    
     <!-- Основное содержимое страницы -->
-    <main style="padding: 20px;">
-        <h2>Настройки</h2>
+    <main class="main-content">
+        <h2>Settings</h2>
         
         <!-- Настройки громкости -->
         <section style="margin-bottom: 20px;">
-            <h3>Громкость</h3>
-            <label for="volume">Уровень громкости:</label>
+            <h3>Volume</h3>
+            <label for="volume">Volume Level:</label>
             <input type="range" id="volume" name="volume" min="0" max="100" value="50" style="width: 100%;">
         </section>
 
         <!-- Настройки качества воспроизведения -->
         <section style="margin-bottom: 20px;">
-            <h3>Качество воспроизведения</h3>
-            <label for="quality">Выберите качество:</label>
+            <h3>Playback Quality</h3>
+            <label for="quality">Choose Quality:</label>
             <select id="quality" name="quality" style="width: 100%; padding: 5px;">
-                <option value="low">Низкое</option>
-                <option value="medium">Среднее</option>
-                <option value="high">Высокое</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
             </select>
         </section>
 
         <!-- Настройки темы -->
         <section style="margin-bottom: 20px;">
-            <h3>Тема</h3>
-            <label for="theme">Выберите тему:</label>
+            <h3>Theme</h3>
+            <label for="theme">Choose Theme:</label>
             <select id="theme" name="theme" style="width: 100%; padding: 5px;">
-                <option value="light">Светлая тема</option>
-                <option value="dark">Тёмная тема</option>
+                <option value="light">Light Theme</option>
+                <option value="dark">Dark Theme</option>
             </select>
         </section>
 
         <!-- Язык интерфейса -->
         <section style="margin-bottom: 20px;">
-            <h3>Язык интерфейса</h3>
-            <label for="language">Выберите язык:</label>
+            <h3>Language</h3>
+            <label for="language">Choose Language:</label>
             <select id="language" name="language" style="width: 100%; padding: 5px;">
-                <option value="en">Английский</option>
-                <option value="ru">Русский</option>
-                <option value="kz">Казахский</option>
+                <option value="en">English</option>
+                <option value="ru">Russian</option>
+                <option value="kz">Kazakh</option>
             </select>
         </section>
 
         <!-- Сохранить настройки -->
         <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: #fff; border: none; cursor: pointer;">
-            Сохранить настройки
+            Save Settings
         </button>
     </main>
 
     <!-- Нижняя полоса -->
-    <div style="width: 100%; background-color: #d0d0d0; height: 30px;"></div>
+    <div class="full-width-bar"></div>
 
     <!-- Футер -->
-    <footer style="width: 100%; background-color: #222; color: #fff; padding: 10px 0; text-align: center;">
+    <footer>
         <p>Page created by Mere mad</p>
         <p>Date: 09.09.2024</p>
     </footer>
