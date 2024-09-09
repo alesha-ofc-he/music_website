@@ -3,16 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Example</title>
+    <title>Music Player</title>
+
+    <style>
+        .full-width-bar {
+            width: 100%;
+            background-color: #d0d0d0;
+            height: 30px;
+        }
+        .website_name {
+            width: 100%;
+            background-color: #d0d0d0;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu nav {
+            margin-left: 20px;
+        }
+        .menu nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .account-link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .audio-player {
+            width: 100vw;
+            background-color: #e0e0e0;
+            padding: 10px 0;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#haaaame">Haaaaaame</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    
+    <div class="full-width-bar top-bar"></div>
+    <header class="website_name">Music Player</header>
+    <header class="menu">
+        <nav>
+            <!-- link to main page-->
+            <a href="index.html">Home</a>
+            <!-- link to podkast page-->
+            <a href="podcasts.html">Podcasts</a>
+            <a href="collections.html">Collections</a>
+        </nav>
+        <a href="account.html" class="account-link">Account</a>
+    </header>
+    
+    <div class="full-width-bar second-bar"></div>
+    
+    <main class="main-content">
+        <section>
+            <h2>Welcome to Music Player</h2>
+            <p>Your favorite music and podcasts all in one place.</p>
+        </section>
+    </main>
+    
+    <div class="audio-player">
+        <audio controls>
+            <source src="audio/sample.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <div class="full-width-bar bottom-bar"></div>
+    
+    <footer>
+        <p>Page created by Ali Khan</p>
+        <p>Date: 09.09.2024</p>
+    </footer>
 </body>
 </html>
