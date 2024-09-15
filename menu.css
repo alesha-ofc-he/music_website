@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+}
+.container{
+    margin: 0px 100px;
+}
+.header{
+    background-color: #3B8BA5;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+.header-line{
+    padding: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-name{
+    padding-top:  36px; ;
+}
+.nav{
+    padding-top: 51px;
+}
+
+
+.autocomplete{
+    padding-top: 54px;
+    
+}
+.search-container {
+    position: relative;
+    width: 713px;
+    height: 31px;
+    border-radius: 15px;
+    background-color: #cccccc;
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+  }
+  
+.search-icon {
+    position: absolute;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+}
+  
+input[type="text"] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.menu-settings{
+    padding-top: 45px;
+    
+
+}
+.menu-account{
+    padding-top: 40px;
+}
+.account-image{
+    width: 33px;
+    height: 33px;
+}
+.made-with-love {
+    padding-top: 2;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    position:absolute;
+    top: 0;
+    right: 0;
+    padding: 0px;
+    color: #fff;
+    text-align: right;
+    z-index: 1;
+    transition: color 0.25s linear;
+}
+.made-with-love:hover{
+    color:crimson;
+}
+.heart-image{
+    width: 14px;
+    height: 14px;
+}
+
+.nav-header{
+    color: #fff;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    transition: color 0.25s linear;
+}
+.nav-header:hover{
+    color:#cccccc;
+}
+.nav-item{
+    color: #fff;
+    text-decoration: none;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    margin-left: 40px;
+    transition: color 0.25s linear;
+}
+.nav-item:hover{
+    color:coral;
+}
+
+
+
+.bar1{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 116px;
+    background: #FFFFFF;
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #26445A;
+    padding: 0px;
+    box-sizing: border-box;
+}
