@@ -3,147 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player - Account</title>
-
-    <style>
-        .full-width-bar {
-            width: 100%;
-            background-color: #d0d0d0;
-            height: 30px;
-        }
-        .website_name {
-            width: 100%;
-            background-color: #d0d0d0;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 24px;
-        }
-        .menu {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .menu nav {
-            margin-left: 20px;
-        }
-        .menu nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .account-link {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .settings-link {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .main-content {
-            padding: 20px;
-        }
-        .audio-player {
-            width: 100vw;
-            background-color: #e0e0e0;
-            padding: 10px 0;
-            text-align: center;
-            box-sizing: border-box;
-            margin: 0;
-        }
-        footer {
-            width: 100%;
-            background-color: #222;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .login-box {
-            background-color: #f0f0f0;
-            border-radius: 15px;
-            padding: 40px;
-            width: 400px; /* Увеличено до 400px */
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .login-box input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        .login-box button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #333;
-            color: white;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%; /* Кнопка на всю ширину */
-        }
-    </style>
+    <link rel="stylesheet" href="menu.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>Tolkyn</title>
 </head>
 <body>
-    
-    <div class="full-width-bar top-bar"></div>
-    <header class="website_name">Account</header>
-    <header class="menu">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="podcasts.html">Podcasts</a>
-            <a href="audiobooks.html">Audiobooks</a>
-            <a href="collections.html">Collections</a>
-        </nav>
-        <div>
-            <a href="settings.html" class="settings-link">Settings</a>
-            <a href="account.html" class="account-link">Account</a>
-        </div>
-    </header>
-    
-    <div class="full-width-bar second-bar"></div>
-    
-    <main class="main-content">
-        <div class="login-box">
-            <h2>Login to Your Account</h2>
-            <form>
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+
+<div class="header">
+    <div class="container">
+        <div class="header-line"> 
+
+            <div class="header-name">
+                <a class="nav-header" href="home.html">TOLKYN</a>
+            </div>
+            <div class="nav">
+                <a class="nav-item" href="collections.html">Collections</a>
+                <a class="nav-item" href="podcasts.html">Podcasts</a>
+                <a class="nav-item" href="audiobooks.html">Audiobooks</a>
+            </div>
+
+            <form autocomplete="off" action="/search" method="GET">
+                <div class="autocomplete">
+                  <div class="search-container">
+                    <img src="images/lens.png" class="search-icon" alt="Search Icon">
+                    <input id="search" type="text" name="query" placeholder="Search...">
+                  </div>
+                </div>
             </form>
+
+            <div class="menu-settings">
+                <a class="nav-item" href="settings.html">Settings</a>
+            </div>
+            <div class="menu-account">
+                <a href="account.html">
+                    <img class="account-image" src="images/account.png" alt="account">
+                </a>
+            </div>
+
+            
+
         </div>
-    </main>
-    
-    <div class="audio-player">
-        <audio controls>
-            <source src="audio/sample.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
+    <div class="made-with-love">
+        Made with Love!
+        <img class="heart-image" src="images/heart.png" >
+    </div>
+</div>
+<div class="bar1"></div>
+
     
-    <div class="full-width-bar bottom-bar"></div>
-    
-    <footer>
+
+
+    <footer class="footer">
         <p>Page created by AliKhan Kassymbekov IT-2307</p>
         <p>Date: 09.09.2024</p>
     </footer>

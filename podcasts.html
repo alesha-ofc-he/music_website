@@ -3,157 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcasts</title>
-
-    <style>
-        .full-width-bar {
-            width: 100%;
-            background-color: #d0d0d0;
-            height: 30px;
-        }
-        .website_name {
-            width: 100%;
-            background-color: #d0d0d0;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 24px;
-        }
-        .menu {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .settings-link {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .menu nav {
-            margin-left: 20px;
-        }
-        .menu nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .account-link {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .main-content {
-            padding: 20px;
-        }
-        .podcast-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .podcast-item {
-            width: 45%;
-            background-color: #f0f0f0;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-        }
-        .podcast-item h3 {
-            margin: 0 0 10px 0;
-        }
-        .podcast-item p {
-            margin: 0;
-        }
-        footer {
-            width: 100%;
-            background-color: #222;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="menu.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>Tolkyn</title>
 </head>
 <body>
-    
-    <div class="full-width-bar top-bar"></div>
-    <header class="website_name">Podcasts</header>
-    <header class="menu">
-        <nav>
-            <!-- link to main page-->
-            <a href="index.html">Home</a>
-            <!-- link to podcasts page-->
-            <a href="podcasts.html">Podcasts</a>
-            <!-- link to audiobooks page-->
-            <a href="audiobooks.html">Audiobooks</a>
-            <!-- link to collections page-->
-            <a href="collections.html">Collections</a>
-        </nav>
-        <div>
-            <!-- link to settingss page-->
-            <a href="settings.html" class="settings-link">Settings</a>
-            <!-- link to account page-->
-            <a href="account.html" class="account-link">Account</a>
-        </div>
-    </header>
-    
-    <div class="full-width-bar second-bar"></div>
-    
-    <main class="main-content">
-        <section>
-            <h2>Popular Podcasts</h2>
-            <div class="podcast-list">
-                <div class="podcast-item">
-                    <h3>Dope Söz: Zhomart Aralbaiuly</h3>
-                    <p>A Kazakh podcast that discusses both the past and the present.</p>
-                    <audio controls>
-                        <source src="audio/podcast1.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="podcast-item">
-                    <h3>Zamandas</h3>
-                    <p>Zamandas is our view of modern world, where we not only listen carefully to our guests and their stories, but also express our opinions.</p>
-                    <audio controls>
-                        <source src="audio/podcast2.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="podcast-item">
-                    <h3>nFactorial Podcast</h3>
-                    <p>DWeekly conversations between nFactorial School founder Arman Suleimenov and inspiring professionals from different industries.</p>
-                    <audio controls>
-                        <source src="audio/podcast3.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="podcast-item">
-                    <h3>Narikbi LIVE</h3>
-                    <p>A podcast that contributes to the spiritual and intellectual development of the youth of Kazakhstan and helps define the values ​​of life.</p>
-                    <audio controls>
-                        <source src="audio/podcast4.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
+
+<div class="header">
+    <div class="container">
+        <div class="header-line"> 
+
+            <div class="header-name">
+                <a class="nav-header" href="home.html">TOLKYN</a>
             </div>
-        </section>
-    </main>
+            <div class="nav">
+                <a class="nav-item" href="collections.html">Collections</a>
+                <a class="nav-item" href="podcasts.html">Podcasts</a>
+                <a class="nav-item" href="audiobooks.html">Audiobooks</a>
+            </div>
+
+            <form autocomplete="off" action="/search" method="GET">
+                <div class="autocomplete">
+                  <div class="search-container">
+                    <img src="images/lens.png" class="search-icon" alt="Search Icon">
+                    <input id="search" type="text" name="query" placeholder="Search...">
+                  </div>
+                </div>
+            </form>
+
+            <div class="menu-settings">
+                <a class="nav-item" href="settings.html">Settings</a>
+            </div>
+            <div class="menu-account">
+                <a href="account.html">
+                    <img class="account-image" src="images/account.png" alt="account">
+                </a>
+            </div>
+
+            
+
+        </div>
+    </div>
+    <div class="made-with-love">
+        Made with Love!
+        <img class="heart-image" src="images/heart.png" >
+    </div>
+</div>
+<div class="bar1"></div>
+
     
-    <div class="full-width-bar bottom-bar"></div>
-    
-    <footer>
-        <p>Page created by Yeskendir</p>
+
+
+    <footer class="footer">
+        <p>Page created by AliKhan Kassymbekov IT-2307</p>
         <p>Date: 09.09.2024</p>
     </footer>
 </body>
