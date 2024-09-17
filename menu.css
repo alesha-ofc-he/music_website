@@ -1,51 +1,55 @@
 body{
     margin: 0;
+    background-color: #3B8BA5;
 }
+
 .container{
     margin: 0px 100px;
 }
+
 .header{
-    background-color: #3B8BA5;
+    background-color: #3B8BA5; /* Выбранный стиль */
     height: 12vh;
     background-repeat: no-repeat;
 }
+
 .header-line{
     padding: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .header-name{
-    padding-top:  36px; ;
+    padding-top:  36px;
 }
+
 .nav{
     padding-top: 51px;
 }
 
-
 .autocomplete{
     padding-top: 54px;
-    
 }
+
 .search-container {
     position: relative;
-    width: 713px;
+    width: 220%;
     height: 31px;
     border-radius: 15px;
     background-color: #cccccc;
     display: flex;
     align-items: center;
     padding-left: 28px;
-  }
-  
+}
+
 .search-icon {
     position: absolute;
     left: 10px;
     width: 16px;
     height: 16px;
 }
-  
+
 input[type="text"] {
     width: 100%;
     height: 100%;
@@ -58,16 +62,19 @@ input[type="text"] {
 
 .menu-settings{
     padding-top: 45px;
-    
-
+    margin-left: 35%;
 }
+
 .menu-account{
     padding-top: 40px;
+    margin-right: -16%;
 }
+
 .account-image{
     width: 33px;
     height: 33px;
 }
+
 .made-with-love {
     padding-top: 2;
     color: #fff;
@@ -85,9 +92,11 @@ input[type="text"] {
     z-index: 1;
     transition: color 0.25s linear;
 }
+
 .made-with-love:hover{
     color:crimson;
 }
+
 .heart-image{
     width: 14px;
     height: 14px;
@@ -102,9 +111,11 @@ input[type="text"] {
     font-size: 36px;
     transition: color 0.25s linear;
 }
+
 .nav-header:hover{
     color:#cccccc;
 }
+
 .nav-item{
     color: #fff;
     text-decoration: none;
@@ -115,11 +126,10 @@ input[type="text"] {
     margin-left: 40px;
     transition: color 0.25s linear;
 }
+
 .nav-item:hover{
     color:coral;
 }
-
-
 
 .bar1{
     position: absolute;

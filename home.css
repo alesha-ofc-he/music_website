@@ -1,0 +1,457 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1480px;
+    height: 1883px;
+}
+
+.main-body {
+    height: 1967px;
+    width: 1480px;
+    margin: 0 auto;
+}
+
+.main-page-logo, .recommendations, .video-clips-main, .podcasts_audiobooks_recommendation {
+    width: 1480px;
+    padding: 20px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.player {
+    position: fixed;
+    right: 10px;
+    top: 50px;
+    width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.bar-small {
+    width: 850px;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0; 
+}
+
+.container2 {
+    margin: 0px 100px;
+}
+
+.recommendations {
+    position: relative;
+    width: 1480px;
+    height: 220px; /* Установите высоту, чтобы разместить все квадраты */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rectangle {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 26px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rectangle1 {
+    background: #FFFFFF;
+    left: 0px;
+    top: 0; /* Расположите квадраты по желаемым координатам */
+}
+
+.rectangle2 {
+    background: #F8C0EB;
+    left: 220px;
+    top: 0; /* Расположите квадраты по желаемым координатам */
+}
+
+.rectangle3 {
+    background: #F9CEB5;
+    left: 440px;
+    top: 0; /* Расположите квадраты по желаемым координатам */
+}
+
+.rectangle4 {
+    background: #C6F7DA;
+    left: 660px;
+    top: 0; /* Расположите квадраты по желаемым координатам */
+}
+
+.rectangle-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    width: 180px; /* Ширина текста должна совпадать с шириной прямоугольников */
+    top: 190px; /* Подгоните значение, чтобы текст был под квадратами */
+    /* Recently Played */
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+
+}
+
+.recommendation-name {
+    margin: 0;
+}
+
+.recommendation1-text {
+    left: 1px;
+}
+
+.recommendation2-text {
+    left: 220px;
+}
+
+.recommendation3-text {
+    left: 440px;
+}
+
+.recommendation4-text {
+    left: 660px;
+}
+
+.icon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-name{
+
+width: 162px;
+height: 73px;
+left: 100px;
+top: 100px;
+
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 58px;
+
+color: #FFFFFF;
+mix-blend-mode: normal;
+}
+
+.logo-image{
+    width: 220px;
+    height: 220px;
+    margin-left: 20%;
+}
+.video-clip-text{
+    /* Video clips time ! */
+position: absolute;
+width: 378px;
+height: 73px;
+left: 107px;
+top: 858px;
+
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 38px;
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+margin-top: 8%;
+
+}
+.sub-video-clip-text{
+    /* Watch all new clips in Tolkyn */
+position: absolute;
+width: 378px;
+height: 73px;
+left: 107px;
+top: 900px;
+
+font-family: "Inria Sans", sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+margin-top: 9%;
+
+}
+
+.bar-small-2{
+    /* Line 13 */
+
+position: absolute;
+width: 850px;
+    height: 1px;
+    background: #ccc;
+margin-top: 2%;
+
+
+}
+.podcasts-audiobooks-main{
+    top: 678px;
+}
+.podcasts-audiobooks-main-text {
+    width: 378px;
+    height: 73px;
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+    margin-top: 50px; /* Добавить отступ сверху */
+}
+.podcasts-grid {
+    position: relative;
+    width: 1480px;
+    height: 220px; /* Подходящая высота для размещения всех блоков */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 40px; /* Отступ сверху под фразой "Podcasts and Audiobooks" */
+}
+
+.rectangle {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 26px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.podcast1 {
+    background-image: url('images/podcast1.png');
+  background-size: cover;
+  background-position: center;
+
+    left: 0px;
+    top: 0;
+}
+
+.podcast2 {
+    background-image: url('images/podcast2.png');
+  background-size: cover;
+  background-position: center;
+
+    left: 0px;
+    top: 0;
+    left: 220px;
+    top: 0;
+}
+
+.podcast3 {
+    background-image: url('images/podcast3.png');
+  background-size: cover;
+  background-position: center;
+
+    left: 0px;
+    top: 0;
+    left: 440px;
+    top: 0;
+}
+
+.podcast4 {
+    background-image: url('images/podcast4.png');
+  background-size: cover;
+  background-position: center;
+
+    left: 0px;
+    top: 0;
+    left: 660px;
+    top: 0;
+}
+
+.podcast-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    width: 180px;
+    top: 190px; /* Расположить текст под квадратиками */
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.podcast1-text {
+    left: 0px;
+}
+
+.podcast2-text {
+    left: 220px;
+}
+
+.podcast3-text {
+    left: 440px;
+}
+
+.podcast4-text {
+    left: 0px;
+}
+
+.podcast-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    width: 180px; /* Ширина текста должна совпадать с шириной прямоугольников */
+    top: 190px; /* Подгоните значение, чтобы текст был под квадратами */
+    /* Recently Played */
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+
+}
+
+.icon {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 283px;
+    height: 292px;
+    background: url('images/meremad.png') no-repeat center;
+    background-size: contain; /* Масштабируем изображение альбома */
+    border-radius: 35px;
+    z-index: 1000;
+    transform: translateX(calc(0vw - 50%));
+    margin-top: 220px; /* Регулирует позицию плеера под заголовком */
+}
+
+.player-info {
+    position: absolute;
+    top: 330px; /* Поднял информацию чуть выше */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+    overflow: hidden;
+}
+
+.scrolling-text {
+    position: relative;
+    width: 95%;
+    overflow: hidden;
+    white-space: nowrap;
+    /* Video clips time ! */
+
+
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 38px;
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+
+}
+
+.song-title {
+    display: inline-block;
+    animation: bounce-scroll 12s linear infinite;
+}
+
+@keyframes bounce-scroll {
+    0% {
+        transform: translateX(8%); /* Текст начинает справа */
+    }
+    50% {
+        transform: translateX(-36%); /* Текст уходит налево */
+    }
+    100% {
+        transform: translateX(8%); /* Текст возвращается вправо */
+    }
+}
+
+
+.song-subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+.player-container{
+    padding-bottom: 240px;
+}
+/* Кнопки управления плеером */
+.player-controls {
+    position: relative;
+    bottom: -210px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+audio {
+    width: 100%;
+    border: none;
+    
+}
+
+
+
+.bar-vertical{
+
+position: absolute;
+width: 2066px;
+height: 0px;
+top: 1150px;
+left: 54px;
+
+border: 1px solid #FFFFFF;
+transform: rotate(-90deg);
+
+}
