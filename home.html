@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="menu.css"> 
     <link rel="stylesheet" href="home.css"> 
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:wght@300;400&display=swap" rel="stylesheet">
     <title>Tolkyn</title>
 </head>
 <body>
@@ -26,16 +24,12 @@
                 <a class="nav-item" href="podcasts.html">Podcasts</a>
                 <a class="nav-item" href="audiobooks.html">Audiobooks</a>
             </div>
-
             <form autocomplete="off" action="/search" method="GET">
-                <div class="autocomplete">
-                    <div class="search-container">
-                        <img src="images/lens.png" class="search-icon" alt="Search Icon">
-                        <input id="search" type="text" name="query" placeholder="Search...">
-                    </div>
+                <div class="search-container">
+                    <img src="images/lens.png" class="search-icon" alt="Search Icon">
+                    <input id="search" type="text" name="query" placeholder="Search...">
                 </div>
             </form>
-
             <div class="menu-settings">
                 <a class="nav-item" href="settings.html">Settings</a>
             </div>
@@ -48,7 +42,7 @@
     </div>
     <div class="made-with-love">
         Made with Love!
-        <img class="heart-image" src="images/heart.png">
+        <img class="heart-image" src="images/heart.png" alt="Heart Image">
     </div>
 </div>
 
@@ -56,74 +50,60 @@
 
 <div class="main-body">
     <div class="container2">
-    
         <div class="main-page-logo">
             <p class="logo-name">Home</p>
-            <img class="logo-image" src="images/logo.png" alt="logo-image">
+            <img class="logo-image" src="images/logo.png" alt="Logo Image">
         </div>
-
         <div class="bar-small"></div>
-
         <div class="recommendations">
             <div class="rectangle rectangle1">
                 <img class="icon" src="images/Play.png" alt="Play Icon">
             </div>
             <p class="rectangle-text recommendation1-text">Recently Played</p>
-        
             <div class="rectangle rectangle2">
                 <img class="icon" src="images/heart_rec.png" alt="Heart Icon">
             </div>
             <p class="rectangle-text recommendation2-text">Liked Songs</p>
-        
             <div class="rectangle rectangle3">
                 <img class="icon" src="images/music_note.png" alt="Music Note Icon">
             </div>
             <p class="rectangle-text recommendation3-text">Hot tracks of the month</p>
-        
             <div class="rectangle rectangle4">
                 <img class="icon" src="images/headphones.png" alt="Headphones Icon">
             </div>
             <p class="rectangle-text recommendation4-text">Playlist of the day</p>
         </div>
-        
-        
-
         <div class="bar-small"></div>
+
 
         <div class="video-clip">
             <p class="video-clip-text">Video clips time!</p>
             <p class="sub-video-clip-text">Watch all new clips in Tolkyn</p>
-            <iframe style="margin-top: 7%;" width="850" height="470" src="https://www.youtube.com/embed/sWqDIZxO-nU" title="In Rainbows | Radiohead | From The Basement" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe style="margin-top: 6%;" width="57%" height="470px" src="https://www.youtube.com/embed/sWqDIZxO-nU" 
+            title="In Rainbows | Radiohead | From The Basement" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
         </div>
-
         <div class="bar-small-2"></div>
-        
         <div class="podcasts-audiobooks-main">
-            <p class="podcasts-audiobooks-main-text"> Podcasts and Audiobooks</p>
-
+            <p class="podcasts-audiobooks-main-text">Podcasts and Audiobooks</p>
         </div>
         <div class="podcasts-grid">
             <div class="rectangle podcast1"></div>
             <p class="podcast-text podcast1-text">Elon Musk<br>Walter Isaacson</p>
-            
             <div class="rectangle podcast2"></div>
             <p class="podcast-text podcast2-text">The Hunter<br>Tana French</p>
-            
             <div class="rectangle podcast3"></div>
             <p class="podcast-text podcast3-text">Pride and Prejudice<br>Jane Austen</p>
-            
-            <div class="rectangle podcast4">/div>
+            <div class="rectangle podcast4"></div>
             <p class="podcast-text podcast4-text">Metamorphosis<br>Franz Kafka</p>
         </div>
-        
     </div>
 </div>
-
 
 <div class="bar-vertical"></div>
 
 <div class="player">
-    
     <div class="player-info">
         <div class="scrolling-text">
             <div class="song-title">Moldanazar - Mahabbatym (cover by Meremad)</div>
@@ -131,22 +111,17 @@
         <div class="player-container">
             <audio id="audioPlayer" controls>
                 <source src="mahabat.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает элемент audio.
+                Your browser does not support the audio element.
             </audio>
         </div>
     </div>
-    
-    
-    
-    </div>
 </div>
 
-
-
-
 <footer class="footer">
-    <p>Page created by AliKhan Kassymbekov IT-2307</p>
-    <p>Date: 09.09.2024</p>
+    <div class="footer-text">
+        <p>Page created by AliKhan Kassymbekov IT-2307</p>
+        <p>Date: 09.09.2024</p>
+    </div>
 </footer>
 
 </body>
