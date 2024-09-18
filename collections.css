@@ -1,0 +1,83 @@
+.grid-container {
+    width: 60%; /* Ensure it spans the full width */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 1rem; /* Space between grid items */
+    margin-top: 7%;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coll-image1 {
+    width: 50%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 26px;
+    margin-top: 25%;
+    margin-left: 23%;
+    
+}
+
+.text-collections {
+    margin-top: 0.5rem; /* Space between the image and text */
+    font-family: "Inria Sans", sans-serif;
+    font-size: 1rem; /* Adjust font size as needed */
+    color: #fff; /* Text color */
+}
+
+
+
+
+.rect1, .rect2, .rect3, .rect4 {
+    position: relative;
+    width: 22vh; /* Width of the rectangle */
+    height: 22vh; /* Height of the rectangle */
+    border-radius: 26px;
+    overflow: hidden; /* Ensure the image does not overflow the rectangle */
+    background-color: white; /* Default background color */
+}
+
+.rect2 {
+    background-color: #F8C0EB;
+}
+
+.rect3 {
+    background-color: #F9CEB5;
+}
+
+.rect4 {
+    background-color: #C6F6DA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.big-word{
+    /* Collections */
+
+position: absolute;
+width: 175px;
+height: 43px;
+left: 100px;
+top: 14vh;
+
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 43px;
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+
+}
