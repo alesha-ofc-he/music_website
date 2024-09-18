@@ -1,34 +1,34 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100% ;
-    height: 1883px;
+    width: 100%;
+    height: 90%;
 }
 
 .main-body {
-    height: 1967px;
+    height: 60%;
     width: 100%;
     margin: 0 auto;
 }
 
 .main-page-logo, .recommendations, .video-clips-main, .podcasts_audiobooks_recommendation {
     width: 100%;
-    padding: 20px;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 .player {
     position: fixed;
     right: 10px;
-    top: 50px;
+    top: 0vh;
     width: 300px;
-    padding: 20px;
+    padding: 2vh;
     background-color: #f9f9f9;
 }
 
 .bar-small {
-    width: 850px;
+    width: 57%;
     height: 1px;
     background: #ccc;
     margin: 20px 0; 
@@ -137,7 +137,7 @@ mix-blend-mode: normal;
 width: 162px;
 height: 73px;
 left: 100px;
-top: 100px;
+
 
 font-family: 'Inria Sans';
 font-style: normal;
@@ -152,7 +152,7 @@ mix-blend-mode: normal;
 .logo-image{
     width: 220px;
     height: 220px;
-    margin-left: 20%;
+    margin-left: 24%;
 }
 .video-clip-text{
     /* Video clips time ! */
@@ -160,7 +160,7 @@ position: absolute;
 width: 378px;
 height: 73px;
 left: 107px;
-top: 858px;
+
 
 font-family: 'Inria Sans';
 font-style: normal;
@@ -171,7 +171,7 @@ line-height: 38px;
 color: #FFFFFF;
 
 mix-blend-mode: normal;
-margin-top: 8%;
+margin-top: 0%;
 
 }
 .sub-video-clip-text{
@@ -223,10 +223,10 @@ margin-top: 2%;
 .podcasts-grid {
     position: relative;
     width: 100%;
-    height: 220px; /* Подходящая высота для размещения всех блоков */
-    padding: 20px;
+    height: 0%; /* Подходящая высота для размещения всех блоков */
+    padding: 0%;
     box-sizing: border-box;
-    margin-top: 40px; /* Отступ сверху под фразой "Podcasts and Audiobooks" */
+    margin-top: 0%; /* Отступ сверху под фразой "Podcasts and Audiobooks" */
 }
 
 .rectangle {
@@ -303,15 +303,15 @@ margin-top: 2%;
 }
 
 .podcast2-text {
-    left: 220px;
+    left: 15%;
 }
 
 .podcast3-text {
-    left: 440px;
+    left: 30%;
 }
 
 .podcast4-text {
-    left: 0px;
+    left: 45%;
 }
 
 .podcast-text {
@@ -446,12 +446,29 @@ audio {
 .bar-vertical{
 
 position: absolute;
-width: 100%;
-height: 0px;
-top: 1150px;
-left: 54px;
+width: 187.7vh;
+height: 0%;
+top: 104vh;
+left: 17vh;
 
 border: 1px solid #FFFFFF;
 transform: rotate(-90deg);
+
+}
+
+.footer-text{
+    /* Collections */
+
+
+font-family: 'Inria Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+mix-blend-mode: normal;
 
 }

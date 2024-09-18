@@ -1,53 +1,53 @@
-body{
+body {
+    width: 100%;
     margin: 0;
     background-color: #3B8BA5;
 }
 
-.container{
-    margin: 0px 100px;
+.container {
+    margin: 0 5%; /* заменено 100px на 5% */
 }
 
-.header{
-    background-color: #3B8BA5; /* Выбранный стиль */
-    height: 6vh;
+.header {
+    background-color: #3B8BA5; /* Selected style */
+    height: 7%; /* Высота зависит от высоты экрана */
     background-repeat: no-repeat;
 }
 
-.header-line{
-    padding: auto;
+.header-line {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.header-name{
-    padding-top:  36px;
+.header-name {
+    padding-top: 2rem; /* заменено 36px на 2rem */
 }
 
-.nav{
-    padding-top: 51px;
+.nav {
+    padding-top: 3rem; /* заменено 51px на 3rem */
 }
 
-.autocomplete{
-    padding-top: 54px;
+.autocomplete {
+    padding-top: 3.5rem; /* заменено 54px на 3.5rem */
 }
 
 .search-container {
-    position: relative;
-    width: 120%;
-    height: 31px;
-    border-radius: 15px;
+    position:relative;
+    width: 180%; /* заменено 220% на 80% для более нормального отображения */
+    height: 2rem; /* заменено 31px на 2rem */
+    border-radius: 0.75rem; /* заменено 15px на 0.75rem */
     background-color: #cccccc;
     display: flex;
     align-items: center;
-    padding-left: 28px;
+    padding-left: 1rem; /* заменено 28px на 1rem */
 }
 
 .search-icon {
     position: absolute;
-    left: 10px;
-    width: 16px;
-    height: 16px;
+    left: 0.5rem; /* заменено 10px на 0.5rem */
+    width: 1rem; /* заменено 16px на 1rem */
+    height: 1rem; /* заменено 16px на 1rem */
 }
 
 input[type="text"] {
@@ -56,86 +56,80 @@ input[type="text"] {
     border: none;
     outline: none;
     background-color: transparent;
-    padding: 5px;
-    font-size: 14px;
+    padding: 0.5rem; /* заменено 5px на 0.5rem */
+    font-size: 0.875rem; /* заменено 14px на 0.875rem */
 }
 
-.menu-settings{
-    padding-top: 45px;
-    margin-left: 35%;
+.menu-settings {
+    padding-top: 2.5rem; /* заменено 45px на 2.5rem */
+    margin-left: 20%; /* заменено 35% на 10% для лучшего отображения */
 }
 
-.menu-account{
-    padding-top: 40px;
-    margin-right: -3%;
+.menu-account {
+    padding-top: 2rem; /* заменено 40px на 2rem */
+    margin-right: 0%; /* заменено -16% на -8% для лучшего отображения */
 }
 
-.account-image{
-    width: 33px;
-    height: 33px;
+.account-image {
+    width: 2rem; /* заменено 33px на 2rem */
+    height: 2rem; /* заменено 33px на 2rem */
 }
 
 .made-with-love {
-    padding-top: 2;
     color: #fff;
     text-decoration: none;
     font-family: "Indie Flower", cursive;
     font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-    position:absolute;
-    top: 0;
-    right: 0;
-    padding: 0px;
-    color: #fff;
+    font-size: 1rem; /* заменено 15px на 1rem */
+    position: absolute;
+    top: 1rem; /* заменено 0 на 1rem */
+    right: 1rem; /* заменено 0 на 1rem */
     text-align: right;
     z-index: 1;
     transition: color 0.25s linear;
 }
 
-.made-with-love:hover{
-    color:crimson;
+.made-with-love:hover {
+    color: crimson;
 }
 
-.heart-image{
-    width: 14px;
-    height: 14px;
+.heart-image {
+    width: 0.875rem; /* заменено 14px на 0.875rem */
+    height: 0.875rem; /* заменено 14px на 0.875rem */
 }
 
-.nav-header{
+.nav-header {
     color: #fff;
     text-decoration: none;
     font-family: "Roboto", sans-serif;
     font-weight: 700;
-    font-style: normal;
-    font-size: 36px;
+    font-size: 2.25rem; /* заменено 36px на 2.25rem */
     transition: color 0.25s linear;
 }
 
-.nav-header:hover{
-    color:#cccccc;
+.nav-header:hover {
+    color: #cccccc;
 }
 
-.nav-item{
+.nav-item {
     color: #fff;
     text-decoration: none;
     font-family: "Inria Sans", sans-serif;
     font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-    margin-left: 40px;
+    font-size: 1rem; /* заменено 15px на 1rem */
+    margin-left: 2.5rem; /* заменено 40px на 2.5rem */
     transition: color 0.25s linear;
 }
 
-.nav-item:hover{
-    color:coral;
+.nav-item:hover {
+    color: coral;
 }
 
-.bar1{
+.bar1 {
     position: absolute;
     width: 100%;
-    height: 1px;
-    top: 116px;
+    height: 0.2vh;
+    top: 10%; /* заменено 116px на 10vh */
     background: #FFFFFF;
 }
 
@@ -146,6 +140,6 @@ input[type="text"] {
     left: 0;
     right: 0;
     background-color: #26445A;
-    padding: 0px;
+    padding: 1rem; /* добавлено для отступов */
     box-sizing: border-box;
 }
