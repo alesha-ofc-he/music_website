@@ -9,7 +9,7 @@ body{
 
 .header{
     background-color: #3B8BA5; /* Выбранный стиль */
-    height: 12vh;
+    height: 6vh;
     background-repeat: no-repeat;
 }
 
@@ -17,7 +17,7 @@ body{
     padding: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .header-name{
@@ -34,7 +34,7 @@ body{
 
 .search-container {
     position: relative;
-    width: 220%;
+    width: 120%;
     height: 31px;
     border-radius: 15px;
     background-color: #cccccc;
@@ -67,7 +67,7 @@ input[type="text"] {
 
 .menu-account{
     padding-top: 40px;
-    margin-right: -16%;
+    margin-right: -3%;
 }
 
 .account-image{
