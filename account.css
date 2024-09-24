@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3B8BA5; /* Основной фон */
+    color: #fff;
+}
+
+.main-account {
+    position: relative;
+    top: 50px; /* Уменьшил расстояние сверху */
+    left: 110px;
+    width: 760px;
+}
+
+.account-title {
+    font-size: 3.5rem; /* Увеличил шрифт */
+    margin-bottom: 10px; /* Уменьшил отступ снизу */
+    color: white;
+}
+
+.account-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.account-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid white; /* Белая окантовка */
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центровка по вертикали относительно фото */
+    height: 100%;
+}
+
+.account-name {
+    font-size: 2rem; /* Увеличил шрифт для никнейма */
+    font-weight: bold;
+}
+
+.account-email {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+.account-settings {
+    background-color: rgba(255, 255, 255, 0.2); /* Сделал светлее чем фон */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.settings-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setting-block {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.setting-block:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
