@@ -6,7 +6,7 @@ html, body {
 }
 
 .main-body {
-    height: 60%;
+    height: 240%;
     width: 100%;
     margin: 0 auto;
 }
@@ -171,7 +171,7 @@ line-height: 38px;
 color: #FFFFFF;
 
 mix-blend-mode: normal;
-margin-top: 0%;
+
 
 }
 .sub-video-clip-text{
@@ -417,9 +417,22 @@ mix-blend-mode: normal;
 }
 
 
-.player-container{
-    padding-bottom: 240px;
+
+
+audio {
+    width: 100%; /* Ширина аудиоплеера на 100% от контейнера */
 }
+
+.scrolling-text {
+    margin-top: 10px; /* Отступ сверху для текста */
+    text-align: center; /* Центрируем текст */
+    color: #fff; /* Цвет текста */
+}
+
+.song-title {
+    font-size: 1.2rem; /* Размер шрифта для заголовка */
+}
+
 /* Кнопки управления плеером */
 .player-controls {
     position: relative;
