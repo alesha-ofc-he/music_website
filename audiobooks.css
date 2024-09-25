@@ -239,6 +239,11 @@ input[type="text"] {
     color: #cccccc;
 }
 
+.custom-carousel {
+    width: 800px; /* Задайте нужную ширину */
+    margin: 0 auto; /* Центрирует карусель */
+}
+
 /* Footer Styling */
 .footer {
     text-align: center;
