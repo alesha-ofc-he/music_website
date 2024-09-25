@@ -1,3 +1,21 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 110%;
+}
+.main-body {
+    height: 200% !important;
+    width: 100%;
+
+
+}
+body {
+    background-color: #3B8BA5 !important;
+}
+.main-body {
+    background-color: #3B8BA5 !important; /* Замените на нужный вам цвет */
+}
 .grid-container {
     width: 60%; /* Ensure it spans the full width */
     display: grid;

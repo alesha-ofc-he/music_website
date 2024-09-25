@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    margin: 0 5%;
+    margin: 0;
 }
 .header {
     background-color: #3B8BA5; /* Голубой фон для хедера */

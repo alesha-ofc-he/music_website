@@ -138,7 +138,7 @@ input[type="text"] {
 }
 
 .active {
-    color: coral; /* Highlight the active page */
+    color: coral; 
 }
 
 /* Content Area */
@@ -240,8 +240,8 @@ input[type="text"] {
 }
 
 .custom-carousel {
-    width: 800px; /* Задайте нужную ширину */
-    margin: 0 auto; /* Центрирует карусель */
+    width: 800px; 
+    margin: 0 auto; 
 }
 
 /* Footer Styling */
