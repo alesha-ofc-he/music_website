@@ -16,18 +16,18 @@
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand text-white me-4" href="index.html">TOLKYN</a>
                     <nav class="d-flex">
-                        <a class="nav-link mx-2" href="/path/to/collections">Collections</a>
-                        <a class="nav-link mx-2" href="/path/to/podcasts">Podcasts</a>
-                        <a class="nav-link mx-2" href="/path/to/audiobooks">Audiobooks</a>
+                        <a class="nav-link mx-2" href="collections.html">Collections</a>
+                        <a class="nav-link mx-2" href="podcasts.html">Podcasts</a>
+                        <a class="nav-link mx-2" href="audiobooks.html">Audiobooks</a>
                     </nav>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="position-relative mx-2">
                         <i class="bi bi-search search-icon text-white"></i>
-                        <input type="text" class="form-control bg-transparent text-white border-2 border-white rounded-pill" placeholder="Search..." style="padding-left: 30px;">
+                        <input type="text" class="form-control bg-transparent border-2 border-white rounded-pill text-white" placeholder="Search..." style="padding-left: 30px;">
                     </div>
-                    <a class="nav-link mx-2" href="/path/to/settings"><i class="bi bi-gear text-white"></i></a>
-                    <a class="nav-link mx-2" href="/path/to/account"><i class="bi bi-person-circle text-white"></i></a>
+                    <a class="nav-link mx-2" href="settings.html"><i class="bi bi-gear text-white"></i></a>
+                    <a class="nav-link mx-2" href="account.html"><i class="bi bi-person-circle text-white"></i></a>
                 </div>
             </div>
             <div class="made-with-love">
@@ -128,7 +128,7 @@
         </section>
     </main>
 
-    <div id="player" class="player">
+    <div id="player" class="player" style="display: none;">
         <img src="images/meremad.png" alt="Album cover" id="playerCover">
         <div class="player-song-info">
             <div class="player-song-title" id="playerSongTitle">Currently Playing Song</div>
@@ -146,10 +146,15 @@
             <i class="bi bi-skip-start-fill" id="prevBtn"></i>
             <i class="bi bi-play-circle-fill fs-1" id="playPauseBtn"></i>
             <i class="bi bi-skip-end-fill" id="nextBtn"></i>
+            <i class="bi bi-volume-up" id="volumeBtn"></i>
+        </div>
+        <div class="volume-control">
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
         </div>
     </div>
 
     <footer class="footer text-center py-3 mt-5">
+        
         <p class="mb-0">Page created by AliKhan Kassymbekov IT-2307</p>
         <p class="mb-0">Date: 09.09.2024</p>
     </footer>

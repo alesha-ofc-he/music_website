@@ -1,78 +1,109 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #3B8BA5 !important;
-    color: #fff;
+:root {
+    --primary-color: #1E3A8A;
+    --secondary-color: #F8C0EB;
+    --tertiary-color: #F9CEB5;
+    --quaternary-color: #C6F7DA;
+    --body-bg: #E0F2FE; /* Светлый фон */
+    --header-footer-bg: #0F172A;
+    --settings-bg: #1E293B;
+    --text-color: #333; /* Цвет текста в светлой теме */
 }
 
-.container {
-    background-color: #3B8BA5 !important;
-}
-
-.settings {
-    max-width: 760px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #609db1;
-}
-
-.setting {
+body {
+    font-family: 'Inria Sans', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
 }
 
-.setting span {
+.header, .footer {
+    background-color: var(--header-footer-bg);
+    color: white;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.settings-container {
+    background-color: var(--settings-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    color: white;
     flex: 1;
 }
 
-.buttons-group {
-    display: flex;
-    gap: 10px;
+.setting-item {
+    margin-bottom: 1.5rem;
 }
 
-button {
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.form-range::-webkit-slider-thumb {
+    background: var(--primary-color);
 }
 
-button:hover {
-    background-color: #1976D2;
+.form-range::-moz-range-thumb {
+    background: var(--primary-color);
 }
 
-.time-display {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #fff;
+.btn-group .btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-/* Анимация для показа времени */
-.show-animation {
-    animation: fadeIn 1s ease-in-out;
+.btn-group .btn:hover {
+    background-color: #2a4494;
+    border-color: #2a4494;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.form-switch .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-/* Плавная анимация увеличения кнопки */
 .animate-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    background-color: #ff5722;
-    color: white;
-    cursor: pointer;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    transition: transform 0.3s ease;
 }
 
 .animate-btn:hover {
-    background-color: #e64a19;
+    background-color: var(--quaternary-color);
+    transform: scale(1.05);
+}
+
+.time-display {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Темная тема */
+body.dark-mode {
+    --body-bg: #121212; /* Темный фон */
+    --text-color: #000; /* Черный текст в темной теме */
+}
+
+body.dark-mode .header, 
+body.dark-mode .footer {
+    background-color: #333; /* Темный фон заголовка и подвала */
+}
+
+body.dark-mode .settings-container {
+    background-color: #1c1c1c; /* Темный фон настроек */
+}
+
+body.dark-mode .time-display {
+    background-color: #444; /* Темный фон для времени */
 }
