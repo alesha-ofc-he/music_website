@@ -102,22 +102,36 @@
                     <input type="text" class="form-control" id="contactName" required>
                 </div>
                 <div class="mb-3">
-                    <label for="contactEmail" class="form-control">Email</label>
+                    <label for="contactEmail" class="form-label">Email</label>
                     <input type="email" class="form-control" id="contactEmail" required>
                 </div>
                 <div class="mb-3">
-                    <label for="contactMessage" class="form-label">Message</label>
-                    <textarea class="form-control" id="contactMessage" rows="3" required></textarea>
+                    <label for="contactSubject" class="form-label">Subject</label>
+                    <select class="form-control" id="contactSubject" required>
+                        <option value="">Select a subject</option>
+                        <option value="account">Account Issues</option>
+                        <option value="billing">Billing Inquiries</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <div class="mb-3">
+                    <label for="contactMessage" class="form-label">Message</label>
+                    <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
             </form>
+            <div id="successMessage" class="success-message">
+                Your message has been sent successfully. We'll get back to you soon!
+            </div>
         </div>
     </div>
 
     <button id="changeBackgroundBtn" class="btn btn-info position-fixed bottom-0 end-0 m-3">Change Background</button>
 
     <footer class="footer text-center py-3 mt-5">
-        <p class="mb-0">Page created by Yeskendir IT-2307</p>
+        <p class="mb-0">Page created by Alikhan IT-2307</p>
         <p class="mb-0">Date: 09.09.2024</p>
     </footer>
 
