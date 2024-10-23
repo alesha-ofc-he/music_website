@@ -1,71 +1,51 @@
+:root {
+    --primary-color: #1E3A8A;
+    --secondary-color: #F8C0EB;
+    --tertiary-color: #ebf4fa;
+    --quaternary-color: #c5cfd6;
+    --body-bg: #73a1bf;
+    --header-footer-bg: #0F172A;
+    --account-bg: rgba(255, 255, 255, 0.3);
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #3B8BA5; 
+    font-family: 'Inria Sans', sans-serif;
+    background-color: var(--body-bg);
     color: #fff;
 }
-
-.main-account {
-    position: relative;
-    top: 50px; 
-    left: 110px;
-    width: 760px;
-}
-
-.account-title {
-    font-size: 3.5rem; 
-    margin-bottom: 10px; 
+.header, .footer {
+    background-color: var(--header-footer-bg);
     color: white;
 }
-
-.account-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    position: relative;
+.nav-link {
+    color: white !important;
 }
-
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-account {
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--account-bg);
+    border-radius: 20px;
+}
 .account-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-right: 20px;
-    border: 3px solid white; 
+    border: 3px solid white;
 }
-
-.account-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    height: 100%;
-}
-
 .account-name {
-    font-size: 2rem; 
+    font-size: 2rem;
     font-weight: bold;
 }
-
 .account-email {
     font-size: 1.2rem;
     color: #cccccc;
 }
-
-.account-settings {
-    background-color: rgba(255, 255, 255, 0.2); 
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.settings-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.settings-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .setting-block {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 15px;
@@ -73,7 +53,45 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .setting-block:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+.faq-item {
+    margin-bottom: 1rem;
+}
+.faq-question {
+    background-color: var(--tertiary-color);
+    color: #333;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.faq-answer {
+    background-color: var(--quaternary-color);
+    color: #333;
+    padding: 1rem;
+    border-radius: 0 0 5px 5px;
+    display: none;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+.close-popup {
+    float: right;
+    cursor: pointer;
 }

@@ -17,13 +17,13 @@ const hotTracks = [
     new Song(1, "Master of None", "Beach House", "3:19", "songs/Beach House Master Of None.mp3"),
     new Song(2, "Johanna", "Suki Waterhouse", "2:35", "songs/Suki Waterhouse Johanna.mp3"),
     new Song(3, "The End.", "My Chemical Romance", "1:52", "songs/My Chemical Romance The End..mp3"),
-    new Song(4, "Failed at Math(s)", "Panchiko", "2:40", "songs/failed_at_maths.mp3"),
-    new Song(5, "Inference (1)",    "Fog Lake", "2:14", "songs/inference.mp3"),
-    new Song(6, "Rain Intermission", "Strawberry Guy", "3:56", "songs/rain_intermission.mp3"),
-    new Song(7, "Myth", "Beach House", "4:18", "songs/myth.mp3"),
-    new Song(8, "Every Day's A Lesson In Humility", "Suki Waterhouse, Belle and Sebastian", "3:36", "songs/every_days_a_lesson.mp3"),
-    new Song(9, "Falling Apart", "Slow Pulp", "2:46", "songs/falling_apart.mp3"),
-    new Song(10, "All They Wanted", "Panchiko", "2:07", "songs/all_they_wanted.mp3")
+    new Song(4, "Failed at Math(s)", "Panchiko", "2:40", "songs/mahabat.mp3"),
+    new Song(5, "Inference (1)",    "Fog Lake", "2:14", "songs/mahabat.mp3"),
+    new Song(6, "Rain Intermission", "Strawberry Guy", "3:56", "songs/mahabat.mp3"),
+    new Song(7, "Myth", "Beach House", "4:18", "songs/mahabat.mp3"),
+    new Song(8, "Every Day's A Lesson In Humility", "Suki Waterhouse, Belle and Sebastian", "3:36", "songs/mahabat.mp3"),
+    new Song(9, "Falling Apart", "Slow Pulp", "2:46", "songs/mahabat.mp3"),
+    new Song(10, "All They Wanted", "Panchiko", "2:07", "songs/mahabat.mp3")
 ];
 
 let likedSongs = [];
