@@ -6,25 +6,36 @@
     --body-bg: #73a1bf;
     --header-footer-bg: #0F172A;
     --account-bg: rgba(255, 255, 255, 0.3);
+    --text-color: #333;
+    --card-bg: #FFFFFF;
 }
+
+.dark-mode {
+    --body-bg: #121212;
+    --header-footer-bg: #1E1E1E;
+    --account-bg: rgba(30, 30, 30, 0.7);
+    --text-color: #FFFFFF;
+    --tertiary-color: #2a2a2a;
+    --quaternary-color: #3a3a3a;
+    --card-bg: #1E1E1E;
+}
+
 body {
     font-family: 'Inria Sans', sans-serif;
     background-color: var(--body-bg);
-    color: #fff;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .header, .footer {
     background-color: var(--header-footer-bg);
     color: white;
 }
+
 .nav-link {
     color: white !important;
 }
-.search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 .main-account {
     max-width: 760px;
     margin: 3rem auto;
@@ -32,20 +43,24 @@ body {
     background-color: var(--account-bg);
     border-radius: 20px;
 }
+
 .account-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 3px solid white;
 }
+
 .account-name {
     font-size: 2rem;
     font-weight: bold;
 }
+
 .account-email {
     font-size: 1.2rem;
     color: #cccccc;
 }
+
 .setting-block {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 15px;
@@ -53,27 +68,31 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .setting-block:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 .faq-item {
     margin-bottom: 1rem;
 }
+
 .faq-question {
     background-color: var(--tertiary-color);
-    color: #333;
+    color: var(--text-color);
     padding: 1rem;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .faq-answer {
     background-color: var(--quaternary-color);
-    color: #333;
+    color: var(--text-color);
     padding: 1rem;
     border-radius: 0 0 5px 5px;
     display: none;
 }
-/*contact popup window*/
+
 .popup {
     display: none;
     position: fixed;
@@ -86,16 +105,18 @@ body {
     align-items: center;
     z-index: 1000;
 }
+
 .popup-content {
-    background-color: #ffffff;
+    background-color: var(--account-bg);
     padding: 2rem;
     border-radius: 15px;
     max-width: 500px;
     width: 90%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
-    color: #333;
+    color: var(--text-color);
 }
+
 .close-popup {
     position: absolute;
     top: 15px;
@@ -105,28 +126,36 @@ body {
     cursor: pointer;
     transition: color 0.3s;
 }
+
 .close-popup:hover {
-    color: #333;
+    color: var(--text-color);
 }
+
 .popup h2 {
     margin-bottom: 1.5rem;
     color: var(--primary-color);
     font-weight: 700;
 }
+
 .form-label {
     font-weight: 600;
-    color: #555;
+    color: var(--text-color);
 }
+
 .form-control {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 12px;
     transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
 }
+
 .form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.25);
 }
+
 .btn-primary {
     background-color: var(--primary-color);
     border: none;
@@ -134,9 +163,11 @@ body {
     font-weight: 600;
     transition: background-color 0.3s;
 }
+
 .btn-primary:hover {
     background-color: #2a4caf;
 }
+
 .success-message {
     display: none;
     background-color: #d4edda;
@@ -146,10 +177,12 @@ body {
     margin-top: 20px;
     text-align: center;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 .popup-content {
     animation: fadeIn 0.3s ease-out;
 }

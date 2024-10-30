@@ -1,13 +1,41 @@
-// Form Validation
+// Load user data from localStorage
+function loadUserData() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData) {
+        document.getElementById('accountInfo').innerHTML = `
+            <div class="d-flex align-items-center mb-4">
+                <img class="account-photo me-3" src="images/accountmertay.jpg" alt="User Photo">
+                <div>
+                    <h2 class="account-name mb-0">${userData.name} ${userData.surname}</h2>
+                    <p class="account-email mb-0">${userData.email}</p>
+                    <p class="mb-0">Age: ${userData.age}</p>
+                </div>
+            </div>
+        `;
+        document.getElementById('name').value = userData.name;
+        document.getElementById('email').value = userData.email;
+        document.getElementById('age').value = userData.age;
+    } else {
+        window.location.href = 'home.html'; // Redirect to home if not logged in
+    }
+}
+
+// Update profile form
 document.getElementById('profileForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const age = document.getElementById('age').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    if (!name || !email) {
+    if (!name || !email || !age) {
         alert('Please fill in all required fields.');
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
         return;
     }
 
@@ -21,8 +49,17 @@ document.getElementById('profileForm').addEventListener('submit', function(e) {
         return;
     }
 
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    userData.name = name;
+    userData.email = email;
+    userData.age = age;
+    if (password) {
+        userData.password = password;
+    }
+    localStorage.setItem('userData', JSON.stringify(userData));
+
     alert('Profile updated successfully!');
-    this.reset();
+    loadUserData(); // Reload user data to reflect changes
 });
 
 // Accordion for FAQs
@@ -33,52 +70,29 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-// Popup Subscription or Contact Form
+// Contact Support Popup
 const popup = document.getElementById('contactPopup');
 const showPopupBtn = document.getElementById('showPopupBtn');
 const closePopup = document.querySelector('.close-popup');
-
-showPopupBtn.addEventListener('click', () => {
-    popup.style.display = 'flex';
-});
-
-closePopup.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === popup) {
-        popup.style.display = 'none';
-    }
-});
-
-// Change Background Color
-const changeBackgroundBtn = document.getElementById('changeBackgroundBtn');
-const colors = ['#3B8BA5', '#4A5899', '#6A5ACD', '#8B4513', '#2F4F4F'];
-let currentColorIndex = 0;
-
-changeBackgroundBtn.addEventListener('click', () => {
-    currentColorIndex = (currentColorIndex + 1) % colors.length;
-    document.body.style.backgroundColor = colors[currentColorIndex];
-});
-
-//popupContactUSWindow
-
 const contactForm = document.getElementById('contactForm');
 const successMessage = document.getElementById('successMessage');
+
 showPopupBtn.addEventListener('click', () => {
     popup.style.display = 'flex';
 });
+
 closePopup.addEventListener('click', () => {
     popup.style.display = 'none';
     resetForm();
 });
+
 window.addEventListener('click', (e) => {
     if (e.target === popup) {
         popup.style.display = 'none';
         resetForm();
     }
 });
+
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     if (validateForm()) {
@@ -93,6 +107,7 @@ contactForm.addEventListener('submit', function(e) {
         }, 1000);
     }
 });
+
 function validateForm() {
     const name = document.getElementById('contactName').value.trim();
     const email = document.getElementById('contactEmail').value.trim();
@@ -108,12 +123,35 @@ function validateForm() {
     }
     return true;
 }
+
 function isValidEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
+
 function resetForm() {
     contactForm.reset();
     contactForm.style.display = 'block';
     successMessage.style.display = 'none';
 }
+
+// Dark mode toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    darkModeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill text-white"></i>' : '<i class="bi bi-moon-fill text-white"></i>';
+}
+
+darkModeToggle.addEventListener('click', toggleDarkMode);
+
+// Check for saved dark mode preference
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.innerHTML = '<i class="bi bi-sun-fill text-white"></i>';
+}
+
+// Load user data when the page loads
+document.addEventListener('DOMContentLoaded', loadUserData);

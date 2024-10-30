@@ -1,67 +1,113 @@
-// Показать текущее время при нажатии на кнопку
-document.querySelector('.show-time-btn').addEventListener('click', function() {
-    const timeDisplay = document.getElementById('timeDisplay');
-    const currentTime = new Date().toLocaleTimeString();
-    timeDisplay.textContent = `Current Time: ${currentTime}`;
-});
-
-// Переключение языков
 const translations = {
     rus: {
+        collections: "Коллекции",
+        podcasts: "Подкасты",
+        audiobooks: "Аудиокниги",
+        settings: "Настройки",
         volume: "Громкость",
         playbackQuality: "Качество Воспроизведения",
+        low: "Низкое",
+        mid: "Среднее",
+        high: "Высокое",
         darkMode: "Темный Режим",
-        brightMode: "Светлый Режим",
         language: "Язык",
-        settings: "Настройки",
+        showCurrentTime: "Показать текущее время",
         footer: "Страница создана Мерекиевым Мертаем ИТ-2307",
-        date: "Дата: 09.09.2024",
+        date: "Дата:",
     },
     kaz: {
+        collections: "Жинақтар",
+        podcasts: "Подкасттар",
+        audiobooks: "Аудиокітаптар",
+        settings: "Баптаулар",
         volume: "Дыбыс деңгейі",
         playbackQuality: "Ойнату сапасы",
+        low: "Төмен",
+        mid: "Орташа",
+        high: "Жоғары",
         darkMode: "Қараңғы Режим",
-        brightMode: "Жарқын Режим",
         language: "Тіл",
-        settings: "Баптаулар",
+        showCurrentTime: "Ағымдағы уақытты көрсету",
         footer: "Бетті Мерекеев Мертай IT-2307 жасады",
-        date: "Күні: 09.09.2024",
+        date: "Күні:",
     },
     eng: {
+        collections: "Collections",
+        podcasts: "Podcasts",
+        audiobooks: "Audiobooks",
+        settings: "Settings",
         volume: "Volume",
         playbackQuality: "Playback Quality",
+        low: "Low",
+        mid: "Mid",
+        high: "High",
         darkMode: "Dark Mode",
-        brightMode: "Bright Mode",
         language: "Language",
-        settings: "Settings",
+        showCurrentTime: "Show Current Time",
         footer: "Page created by Merekeyev Mertay IT-2307",
-        date: "Date: 09.09.2024",
+        date: "Date:",
     }
 };
 
 function changeLanguage(language) {
-    const langData = translations[language];
-
-    // Изменяем текст на основе выбранного языка
-    document.querySelector('label[for="volumeRange"]').textContent = langData.volume;
-    document.querySelector('.playback-quality-label').textContent = langData.playbackQuality;
-    document.querySelector('.form-check-label[for="darkModeSwitch"]').textContent = langData.darkMode;
-    document.querySelector('.form-check-label[for="brightModeSwitch"]').textContent = langData.brightMode; // для светлого режима
-    document.querySelector('.language-label').textContent = langData.language;
-    document.querySelector('.settings-label').textContent = langData.settings; // для настроек
-    document.querySelector('.footer-text').textContent = langData.footer; // обновлено для футера
-    document.getElementById('currentDate').textContent = langData.date;
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[language] && translations[language][key]) {
+            element.textContent = translations[language][key];
+        }
+    });
+    localStorage.setItem('language', language);
 }
 
-// Обработчик на кнопки языка
-document.querySelectorAll('.lang-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const language = this.textContent.toLowerCase();
-        changeLanguage(language);
-    });
-});
-
-// Переключение темного режима
-document.getElementById('darkModeSwitch').addEventListener('change', function() {
+function toggleTheme() {
     document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    updateThemeToggle();
+    updateDarkModeSwitch(isDarkMode);
+}
+
+function updateThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    themeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill text-white"></i>' : '<i class="bi bi-moon-fill text-white"></i>';
+}
+
+function updateDarkModeSwitch(isDarkMode) {
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+    darkModeSwitch.checked = isDarkMode;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Load language preference
+    const savedLanguage = localStorage.getItem('language') || 'eng';
+    changeLanguage(savedLanguage);
+
+    // Load dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (savedDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+    updateThemeToggle();
+    updateDarkModeSwitch(savedDarkMode);
+
+    // Event listeners
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const language = this.getAttribute('data-lang');
+            changeLanguage(language);
+        });
+    });
+
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('darkModeSwitch').addEventListener('change', toggleTheme);
+    document.getElementById('darkModeToggle').addEventListener('click', toggleTheme);
+
+
+    document.querySelector('.show-time-btn').addEventListener('click', function() {
+        const timeDisplay = document.getElementById('timeDisplay');
+        const currentTime = new Date().toLocaleTimeString();
+        timeDisplay.textContent = `${translations[savedLanguage].showCurrentTime}: ${currentTime}`;
+    });
 });

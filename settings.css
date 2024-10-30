@@ -3,10 +3,10 @@
     --secondary-color: #F8C0EB;
     --tertiary-color: #F9CEB5;
     --quaternary-color: #C6F7DA;
-    --body-bg: #E0F2FE; /* Светлый фон */
+    --body-bg: #73a1bf;
     --header-footer-bg: #0F172A;
-    --settings-bg: #1E293B;
-    --text-color: #333; /* Цвет текста в светлой теме */
+    --settings-bg: rgba(255, 255, 255, 0.3);
+    --text-color: #333333;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header, .footer {
@@ -39,7 +39,7 @@ body {
     background-color: var(--settings-bg);
     border-radius: 15px;
     padding: 2rem;
-    color: white;
+    color: var(--text-color);
     flex: 1;
 }
 
@@ -89,21 +89,17 @@ body {
     margin-top: 1rem;
 }
 
-/* Темная тема */
 body.dark-mode {
-    --body-bg: #121212; /* Темный фон */
-    --text-color: #000; /* Черный текст в темной теме */
-}
-
-body.dark-mode .header, 
-body.dark-mode .footer {
-    background-color: #333; /* Темный фон заголовка и подвала */
-}
-
-body.dark-mode .settings-container {
-    background-color: #1c1c1c; /* Темный фон настроек */
+    --body-bg: #121212;
+    --text-color: #ffffff;
+    --header-footer-bg: #1E1E1E;
+    --settings-bg: rgba(30, 30, 30, 0.7);
 }
 
 body.dark-mode .time-display {
-    background-color: #444; /* Темный фон для времени */
+    background-color: #444;
+}
+
+body:not(.dark-mode) .form-label {
+    color: var(--text-color);
 }
