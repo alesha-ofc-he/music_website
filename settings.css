@@ -24,15 +24,30 @@ body {
     color: white;
 }
 
-.nav-link {
-    color: white !important;
+.header {
+    position: relative;
 }
 
-.search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-left a, .header-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.header-left a:first-child {
+    margin-left: 0;
 }
 
 .settings-container {
@@ -41,6 +56,7 @@ body {
     padding: 2rem;
     color: var(--text-color);
     flex: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .setting-item {
@@ -60,7 +76,7 @@ body {
     border-color: var(--primary-color);
 }
 
-.btn-group .btn:hover {
+.btn-group .btn:hover, .btn-group .btn.active {
     background-color: #2a4494;
     border-color: #2a4494;
 }
@@ -73,7 +89,7 @@ body {
 .animate-btn {
     background-color: var(--tertiary-color);
     color: var(--text-color);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .animate-btn:hover {
@@ -87,6 +103,7 @@ body {
     padding: 0.5rem;
     border-radius: 5px;
     margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 body.dark-mode {
@@ -100,6 +117,25 @@ body.dark-mode .time-display {
     background-color: #444;
 }
 
-body:not(.dark-mode) .form-label {
-    color: var(--text-color);
+@media (max-width: 576px) {
+    .header .container {
+        flex-wrap: nowrap;
+    }
+
+    .header-left, .header-right {
+        flex: 1;
+    }
+
+    .header-left {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .header-left a {
+        display: inline-block;
+    }
+
+    .header-right {
+        justify-content: flex-end;
+    }
 }

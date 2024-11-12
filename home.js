@@ -2,7 +2,117 @@
 const clientId = 'ffe17080164240a787074bc62ec53fa6';
 const clientSecret = '9277436b283d492f990ed82d3044f8ae';
 
-// Song class definition
+const translations = {
+    rus: {
+        title: "Tolkyn - Музыкальный стриминг",
+        collections: "Коллекции",
+        searchPlaceholder: "Поиск...",
+        search: "Искать",
+        home: "Главная",
+        recentlyPlayed: "Недавно прослушанные",
+        likedSongs: "Понравившиеся песни",
+        hotTracks: "Горячие треки месяца",
+        playlistOfTheDay: "Плейлист дня",
+        hotTracksTitle: "Горячие треки месяца",
+        likedSongsTitle: "Понравившиеся песни",
+        recentlyPlayedTitle: "Недавно прослушанные",
+        playlistOfTheDayTitle: "Плейлист дня",
+        videoClipsTime: "Время видеоклипов!",
+        watchNewClips: "Смотрите все новые клипы в Tolkyn",
+        footerCredit: "Страница создана Алиханом Касымбековым ИТ-2307",
+        date: "Дата:",
+    },
+    kaz: {
+        title: "Tolkyn - Музыка ағыны",
+        collections: "Жинақтар",
+        searchPlaceholder: "Іздеу...",
+        search: "Іздеу",
+        home: "Басты бет",
+        recentlyPlayed: "Жақында ойнатылған",
+        likedSongs: "Ұнаған әндер",
+        hotTracks: "Айдың ыстық әндері",
+        playlistOfTheDay: "Күннің ойнату тізімі",
+        hotTracksTitle: "Айдың ыстық әндері",
+        likedSongsTitle: "Ұнаған әндер",
+        recentlyPlayedTitle: "Жақында ойнатылған",
+        playlistOfTheDayTitle: "Күннің ойнату тізімі",
+        videoClipsTime: "Бейнеклиптер уақыты!",
+        watchNewClips: "Tolkyn-да барлық жаңа клиптерді көріңіз",
+        footerCredit: "Бетті Әлихан Қасымбеков ИТ-2307 жасады",
+        date: "Күні:",
+    },
+    eng: {
+        title: "Tolkyn - Music Streaming",
+        collections: "Collections",
+        searchPlaceholder: "Search...",
+        search: "Search",
+        home: "Home",
+        recentlyPlayed: "Recently Played",
+        likedSongs: "Liked Songs",
+        hotTracks: "Hot tracks of the month",
+        playlistOfTheDay: "Playlist of the day",
+        hotTracksTitle: "Hot Tracks of the Month",
+        likedSongsTitle: "Liked Songs",
+        recentlyPlayedTitle: "Recently Played",
+        playlistOfTheDayTitle: "Playlist of the Day",
+        videoClipsTime: "Video clips time!",
+        watchNewClips: "Watch all new clips in Tolkyn",
+        footerCredit: "Page created by AliKhan Kassymbekov IT-2307",
+        date: "Date:",
+    }
+};
+
+function applyLanguage(language) {
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[language] && translations[language][key]) {
+            if (element.tagName === 'INPUT') {
+                element.placeholder = translations[language][key];
+            } else {
+                element.textContent = translations[language][key];
+            }
+        }
+    });
+    document.documentElement.lang = language;
+    document.title = translations[language].title;
+}
+
+function loadUserPreferences() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        return {
+            language: loggedInUser.language || 'eng',
+            darkMode: loggedInUser.darkMode || false
+        };
+    }
+    return {
+        language: localStorage.getItem('language') || 'eng',
+        darkMode: JSON.parse(localStorage.getItem('darkMode')) || false
+    };
+}
+
+function saveUserPreferences(key, value) {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        loggedInUser[key] = value;
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    }
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    updateThemeToggle();
+}
+
+function updateThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    themeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill text-white"></i>' : '<i class="bi bi-moon-fill text-white"></i>';
+}
+
 class Song {
     constructor(id, title, artist, duration, audioSrc, imageUrl) {
         this.id = id;
@@ -30,7 +140,7 @@ let recentlyPlayedSongs = [];
 let hotTracks = [];
 let playlistOfTheDay = [];
 
-// Function to get Spotify access token
+// Spotify API functions
 async function getSpotifyToken() {
     const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
@@ -44,7 +154,6 @@ async function getSpotifyToken() {
     return data.access_token;
 }
 
-// Function to search songs using Spotify API
 async function searchSongs(query) {
     const token = await getSpotifyToken();
     const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track&limit=15`, {
@@ -63,7 +172,6 @@ async function searchSongs(query) {
     ));
 }
 
-// Function to get hot tracks from Spotify API
 async function getHotTracks() {
     const token = await getSpotifyToken();
     const response = await fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF/tracks?limit=10', {
@@ -82,7 +190,6 @@ async function getHotTracks() {
     ));
 }
 
-// Function to display search results
 function displaySearchResults(songs) {
     const searchResults = document.getElementById('searchResults');
     searchResults.innerHTML = '';
@@ -127,7 +234,6 @@ function displaySearchResults(songs) {
     });
 }
 
-// Function to display song list
 function displaySongList(songs, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
@@ -168,30 +274,92 @@ function displaySongList(songs, containerId) {
             const songId = e.currentTarget.dataset.id;
             const song = songs.find(s => s.id === songId);
             if (song) {
-                song.isLiked = !song.isLiked; // Toggle the like status
-                updateLikeButtons(song);
-                if (containerId === 'recentlyPlayedList') {
-                    const recentlyPlayedSong = recentlyPlayedSongs.find(s => s.id === song.id);
-                    if (recentlyPlayedSong) {
-                        recentlyPlayedSong.isLiked = song.isLiked;
-                        saveRecentlyPlayedToLocalStorage();
-                    }
-                }
-                if (song.isLiked) {
-                    if (!likedSongs.some(s => s.id === song.id)) {
-                        likedSongs.unshift(song);
-                    }
-                } else {
-                    likedSongs = likedSongs.filter(s => s.id !== song.id);
-                }
-                updateLikedSongs();
-                e.currentTarget.querySelector('i').className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
+                toggleLikeSong(song);
             }
         });
     });
 }
 
-// Function to toggle like status of a song
+function playSong(song, playlist) {
+    currentPlaylist = playlist;
+    currentSongIndex = currentPlaylist.indexOf(song);
+    let audioSrc = song.audioSrc;
+    if (!audioSrc && song.title) {
+        audioSrc = `songs/${song.title.replace(/ /g, '_')}.mp3`;
+    }
+    audio.src = audioSrc;
+    audio.play().catch(error => {
+        console.error('Error playing audio:', error);
+    });
+    isPlaying = true;
+    updatePlayerInfo(song);
+    updatePlayPauseButton();
+    addToRecentlyPlayed(song);
+    showPlayer();
+}
+
+function updatePlayerInfo(song) {
+    document.getElementById('playerSongTitle').textContent = song.title;
+    document.getElementById('playerSongArtist').textContent = song.artist;
+    document.getElementById('playerCover').src = song.imageUrl || 'images/meremad.png';
+    document.getElementById('playerLikeBtn').querySelector('i').className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
+}
+
+function updatePlayPauseButton() {
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    playPauseBtn.className = isPlaying ? 'bi bi-pause-circle-fill fs-1' : 'bi bi-play-circle-fill fs-1';
+}
+
+function togglePlayPause() {
+    if (isPlaying) {
+        audio.pause();
+    } else {
+        audio.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
+    }
+    isPlaying = !isPlaying;
+    updatePlayPauseButton();
+}
+
+function playNext() {
+    currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+    playSong(currentPlaylist[currentSongIndex], currentPlaylist);
+}
+
+function playPrevious() {
+    currentSongIndex = (currentSongIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
+    playSong(currentPlaylist[currentSongIndex], currentPlaylist);
+}
+
+function toggleShuffle() {
+    isShuffled = !isShuffled;
+    document.getElementById('shuffleBtn').classList.toggle('text-primary', isShuffled);
+    if (isShuffled) {
+        currentPlaylist = [...currentPlaylist].sort(() => Math.random() - 0.5);
+    } else {
+        currentPlaylist = [...currentPlaylist].sort((a, b) => a.id.localeCompare(b.id));
+    }
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+function showPlayer() {
+    const player = document.getElementById('player');
+    player.style.display = 'block';
+    setTimeout(() => player.classList.add('show'), 10);
+}
+
+function hidePlayer() {
+    const player = document.getElementById('player');
+    player.classList.remove('show');
+    setTimeout(() => player.style.display = 'none', 300);
+}
+
 function toggleLikeSong(song) {
     song.toggleLike();
     if (song.isLiked) {
@@ -205,127 +373,28 @@ function toggleLikeSong(song) {
     updateLikeButtons(song);
 }
 
-// Function to update like buttons across all views
 function updateLikeButtons(song) {
-    // Update in search results
     const searchLikeBtn = document.querySelector(`.search-result-like[data-id="${song.id}"] i`);
     if (searchLikeBtn) {
         searchLikeBtn.className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
     }
 
-    // Update in song lists
     const songListLikeBtns = document.querySelectorAll(`.song-like[data-id="${song.id}"] i`);
     songListLikeBtns.forEach(btn => {
         btn.className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
     });
 
-    // Update in player
     const playerLikeBtn = document.getElementById('playerLikeBtn').querySelector('i');
     if (currentPlaylist[currentSongIndex] && currentPlaylist[currentSongIndex].id === song.id) {
         playerLikeBtn.className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
     }
 }
 
-// Function to update liked songs
 function updateLikedSongs() {
     displaySongList(likedSongs, 'likedSongsList');
     saveLikedSongsToLocalStorage();
 }
 
-// Function to play a song
-function playSong(song, playlist) {
-    currentPlaylist = playlist;
-    currentSongIndex = currentPlaylist.indexOf(song);
-    let audioSrc = song.audioSrc;
-    if (!audioSrc && song.title) {
-        // For playlist of the day, construct the audio source based on the song title
-        audioSrc = `songs/${song.title.replace(/ /g, '_')}.mp3`;
-    }
-    audio.src = audioSrc;
-    audio.play().catch(error => {
-        console.error('Error playing audio:', error);
-        // Handle the error (e.g., show a message to the user)
-    });
-    isPlaying = true;
-    updatePlayerInfo(song);
-    updatePlayPauseButton();
-    addToRecentlyPlayed(song);
-    showPlayer();
-}
-
-// Function to update player information
-function updatePlayerInfo(song) {
-    document.getElementById('playerSongTitle').textContent = song.title;
-    document.getElementById('playerSongArtist').textContent = song.artist;
-    document.getElementById('playerCover').src = song.imageUrl || 'images/meremad.png';
-    document.getElementById('playerLikeBtn').querySelector('i').className = song.isLiked ? 'bi bi-heart-fill liked' : 'bi bi-heart';
-}
-
-// Function to update play/pause button
-function updatePlayPauseButton() {
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    playPauseBtn.className = isPlaying ? 'bi bi-pause-circle-fill fs-1' : 'bi bi-play-circle-fill fs-1';
-}
-
-// Function to toggle play/pause
-function togglePlayPause() {
-    if (isPlaying) {
-        audio.pause();
-    } else {
-        audio.play().catch(error => {
-            console.error('Error playing audio:', error);
-            // Handle the error (e.g., show a message to the user)
-        });
-    }
-    isPlaying = !isPlaying;
-    updatePlayPauseButton();
-}
-
-// Function to play next song
-function playNext() {
-    currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
-    playSong(currentPlaylist[currentSongIndex], currentPlaylist);
-}
-
-// Function to play previous song
-function playPrevious() {
-    currentSongIndex = (currentSongIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
-    playSong(currentPlaylist[currentSongIndex], currentPlaylist);
-}
-
-// Function to toggle shuffle
-function toggleShuffle() {
-    isShuffled = !isShuffled;
-    document.getElementById('shuffleBtn').classList.toggle('text-primary', isShuffled);
-    if (isShuffled) {
-        currentPlaylist = [...currentPlaylist].sort(() => Math.random() - 0.5);
-    } else {
-        currentPlaylist = [...currentPlaylist].sort((a, b) => a.id.localeCompare(b.id));
-    }
-}
-
-// Function to format time
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-}
-
-// Function to show player
-function showPlayer() {
-    const player = document.getElementById('player');
-    player.style.display = 'block';
-    setTimeout(() => player.classList.add('show'), 10);
-}
-
-// Function to hide player
-function hidePlayer() {
-    const player = document.getElementById('player');
-    player.classList.remove('show');
-    setTimeout(() => player.style.display = 'none', 300);
-}
-
-// Function to add song to recently played
 function addToRecentlyPlayed(song) {
     const index = recentlyPlayedSongs.findIndex(s => s.id === song.id);
     if (index !== -1) {
@@ -339,12 +408,10 @@ function addToRecentlyPlayed(song) {
     displaySongList(recentlyPlayedSongs, 'recentlyPlayedList');
 }
 
-// Function to save liked songs to local storage
 function saveLikedSongsToLocalStorage() {
     localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
 }
 
-// Function to load liked songs from local storage
 function loadLikedSongsFromLocalStorage() {
     const savedLikedSongs = localStorage.getItem('likedSongs');
     if (savedLikedSongs) {
@@ -353,12 +420,10 @@ function loadLikedSongsFromLocalStorage() {
     }
 }
 
-// Function to save recently played songs to local storage
 function saveRecentlyPlayedToLocalStorage() {
     localStorage.setItem('recentlyPlayedSongs', JSON.stringify(recentlyPlayedSongs));
 }
 
-// Function to load recently played songs from local storage
 function loadRecentlyPlayedFromLocalStorage() {
     const savedRecentlyPlayed = localStorage.getItem('recentlyPlayedSongs');
     if (savedRecentlyPlayed) {
@@ -367,7 +432,6 @@ function loadRecentlyPlayedFromLocalStorage() {
     }
 }
 
-// Function to toggle dark mode
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const isDarkMode = document.body.classList.contains('dark-mode');
@@ -375,12 +439,120 @@ function toggleDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill text-white"></i>' : '<i class="bi bi-moon-fill text-white"></i>';
 }
-
-function isUserRegistered() {
-    return !!localStorage.getItem('userData');
+function showSearchResults() {
+    const searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = '<p>Search results will appear here...</p>';
+    searchResults.style.display = 'block';
 }
 
-// Event listeners
+function showAccountPage(user) {
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    window.location.href = 'account.html';
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    document.getElementById('loginEmailError').textContent = '';
+    document.getElementById('loginPasswordError').textContent = '';
+
+    if (!email) {
+        document.getElementById('loginEmailError').textContent = 'Email is required';
+        return;
+    }
+    if (!password) {
+        document.getElementById('loginPasswordError').textContent = 'Password is required';
+        return;
+    }
+
+    const storedUser = JSON.parse(localStorage.getItem('userData'));
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
+        showAccountPage(storedUser);
+    } else {
+        document.getElementById('loginEmailError').textContent = 'Invalid email or password';
+    }
+}
+
+function handleSignup(e) {
+    e.preventDefault();
+    const name = document.getElementById('signupName').value;
+    const surname = document.getElementById('signupSurname').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    const age = document.getElementById('signupAge').value;
+
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+    let isValid = true;
+    if (name.length < 2) {
+        document.getElementById('signupNameError').textContent = 'Name must be at least 2 characters long';
+        isValid = false;
+    }
+    if (surname.length < 2) {
+        document.getElementById('signupSurnameError').textContent = 'Surname must be at least 2 characters long';
+        isValid = false;
+    }
+    if (!email.includes('@')) {
+        document.getElementById('signupEmailError').textContent = 'Please enter a valid email address';
+        isValid = false;
+    }
+    if (password.length < 8) {
+        document.getElementById('signupPasswordError').textContent = 'Password must be at least 8 characters long';
+        isValid = false;
+    }
+    if (password !== confirmPassword) {
+        document.getElementById('signupConfirmPasswordError').textContent = 'Passwords do not match';
+        isValid = false;
+    }
+    if (age < 13) {
+        document.getElementById('signupAgeError').textContent = 'You must be at least 13 years old';
+        isValid = false;
+    }
+
+    if (isValid) {
+        const userData = { name, surname, email, password, age };
+        localStorage.setItem('userData', JSON.stringify(userData));
+        showAccountPage(userData);
+    }
+}
+
+function changeLanguage(language) {
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[language] && translations[language][key]) {
+            if (element.tagName === 'INPUT') {
+                element.placeholder = translations[language][key];
+            } else {
+                element.textContent = translations[language][key];
+            }
+        }
+    });
+    document.documentElement.lang = language;
+    document.title = translations[language].title;
+    saveUserPreferences('language', language);
+    updateDate(language);
+}
+function updateDate(language) {
+    const today = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    let locale;
+    switch(language) {
+        case 'rus':
+            locale = 'ru-RU';
+            break;
+        case 'kaz':
+            locale = 'kk-KZ';
+            break;
+        default:
+            locale = 'en-US';
+    }
+    document.getElementById('currentDate').textContent = today.toLocaleDateString(locale, options);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
@@ -404,105 +576,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const volumeSlider = document.getElementById('volumeSlider');
     const volumeControl = document.querySelector('.volume-control');
     const playerLikeBtn = document.getElementById('playerLikeBtn');
-    const playerMoveBtn = document.getElementById('playerMoveBtn');
     const playerCloseBtn = document.getElementById('playerCloseBtn');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const accountBtn = document.getElementById('accountBtn');
     const authModal = document.getElementById('authModal');
-    const closeBtn = authModal.querySelector('.close');
-    const authForm = document.getElementById('authForm');
-    const cancelBtn = document.getElementById('cancelBtn');
-    const accountIcon = document.querySelector('.bi-person-circle').parentElement;
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
 
-    function showAuthModal() {
-        authModal.style.display = 'flex';
+    loadLikedSongsFromLocalStorage();
+    loadRecentlyPlayedFromLocalStorage();
+
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="bi bi-sun-fill text-white"></i>';
     }
 
-    function hideAuthModal() {
-        authModal.style.display = 'none';
-        clearErrors();
-        authForm.reset();
-    }
-
-    function clearErrors() {
-        const errorElements = document.querySelectorAll('.error-message');
-        errorElements.forEach(el => el.textContent = '');
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    function validatePassword(password) {
-        return password.length >= 8 && /\d/.test(password);
-    }
-
-    accountIcon.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default navigation
-        const userData = JSON.parse(localStorage.getItem('userData'));
-        if (userData) {
-            window.location.href = 'account.html'; // Redirect to account page if registered
-        } else {
-            showAuthModal(); // Show registration modal if not registered
-        }
-    });
-    cancelBtn.addEventListener('click', hideAuthModal);
-
-    authForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        clearErrors();
-
-        const name = document.getElementById('name').value;
-        const surname = document.getElementById('surname').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        const age = document.getElementById('age').value;
-
-        let hasErrors = false;
-
-        if (!name) {
-            document.getElementById('nameError').textContent = 'Name is required';
-            hasErrors = true;
-        }
-
-        if (!surname) {
-            document.getElementById('surnameError').textContent = 'Surname is required';
-            hasErrors = true;
-        }
-
-        if (!validateEmail(email)) {
-            document.getElementById('emailError').textContent = 'Invalid email format';
-            hasErrors = true;
-        }
-
-        if (!validatePassword(password)) {
-            document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long and contain at least 1 number';
-            hasErrors = true;
-        }
-
-        if (password !== confirmPassword) {
-            document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
-            hasErrors = true;
-        }
-
-        if (!age || isNaN(Number(age))) {
-            document.getElementById('ageError').textContent = 'Please enter a valid age';
-            hasErrors = true;
-        }
-
-        if (!hasErrors) {
-            const userData = { name, surname, email, password, age };
-            localStorage.setItem('userData', JSON.stringify(userData));
-            hideAuthModal();
-            window.location.href = 'account.html'; // Redirect to account page
-        }
-    });
-
-    searchInput.addEventListener('input', async (e) => {
-        const query = e.target.value.trim();
-        if (query.length > 2) {
+    searchInput.addEventListener('input', async () => {
+        const query = searchInput.value.trim();
+        if (query.length > 0) {
             const songs = await searchSongs(query);
             displaySearchResults(songs);
         } else {
@@ -511,44 +605,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('click', (e) => {
-        if (!searchResults.contains(e.target) && e.target !== searchInput) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
             searchResults.style.display = 'none';
         }
     });
 
     hotTracksCard.addEventListener('click', async () => {
-        songListContainer.classList.toggle('d-none');
+        hotTracks = await getHotTracks();
+        displaySongList(hotTracks, 'songList');
+        songListContainer.classList.remove('d-none');
         likedSongsContainer.classList.add('d-none');
         recentlyPlayedContainer.classList.add('d-none');
         playlistOfTheDayContainer.classList.add('d-none');
-        if (hotTracks.length === 0) {
-            hotTracks = await getHotTracks();
-        }
-        displaySongList(hotTracks, 'songList');
     });
 
     likedSongsCard.addEventListener('click', () => {
-        likedSongsContainer.classList.toggle('d-none');
+        displaySongList(likedSongs, 'likedSongsList');
+        likedSongsContainer.classList.remove('d-none');
         songListContainer.classList.add('d-none');
         recentlyPlayedContainer.classList.add('d-none');
         playlistOfTheDayContainer.classList.add('d-none');
-        displaySongList(likedSongs, 'likedSongsList');
     });
 
     recentlyPlayedCard.addEventListener('click', () => {
-        recentlyPlayedContainer.classList.toggle('d-none');
+        displaySongList(recentlyPlayedSongs, 'recentlyPlayedList');
+        recentlyPlayedContainer.classList.remove('d-none');
         songListContainer.classList.add('d-none');
         likedSongsContainer.classList.add('d-none');
         playlistOfTheDayContainer.classList.add('d-none');
-        displaySongList(recentlyPlayedSongs, 'recentlyPlayedList');
     });
 
     playlistOfTheDayCard.addEventListener('click', () => {
-        playlistOfTheDayContainer.classList.toggle('d-none');
+        playlistOfTheDay = [
+            new Song('1', 'Meremad', 'Ninety One', '3:30'),
+            new Song('2', 'Bayau', 'Ninety One', '3:15'),
+            new Song('3', 'Aiyptama', 'Ninety One', '3:45'),
+            new Song('4', 'Kalay Karaisyn', 'Ninety One', '3:20'),
+            new Song('5', 'Ah!Yah!Mah!', 'Ninety One', '3:10')
+        ];
+        displaySongList(playlistOfTheDay, 'playlistOfTheDayList');
+        playlistOfTheDayContainer.classList.remove('d-none');
         songListContainer.classList.add('d-none');
         likedSongsContainer.classList.add('d-none');
         recentlyPlayedContainer.classList.add('d-none');
-        displaySongList(playlistOfTheDay, 'playlistOfTheDayList');
     });
 
     playPauseBtn.addEventListener('click', togglePlayPause);
@@ -565,21 +664,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const progress = (audio.currentTime / audio.duration) * 100;
         seekBar.querySelector('.progress-bar').style.width = `${progress}%`;
         currentTimeEl.textContent = formatTime(audio.currentTime);
-    });
-
-    audio.addEventListener('loadedmetadata', () => {
         durationEl.textContent = formatTime(audio.duration);
     });
 
-    audio.addEventListener('ended', playNext);
-
-    volumeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
+    volumeBtn.addEventListener('click', () => {
         volumeControl.classList.toggle('show');
     });
 
-    volumeSlider.addEventListener('input', (e) => {
-        audio.volume = e.target.value;
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!volumeBtn.contains(e.target) && !volumeControl.contains(e.target)) {
+            volumeControl.classList.remove('show');
+        }
     });
 
     playerLikeBtn.addEventListener('click', () => {
@@ -591,143 +690,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
     playerCloseBtn.addEventListener('click', hidePlayer);
 
-    // Make player draggable
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+
+    const playerMoveBtn = document.getElementById('playerMoveBtn');
     let isDragging = false;
-    let startX, startY, startLeft, startTop;
+    let startX, startY, startLeft, startBottom;
 
-    playerMoveBtn.addEventListener('mousedown', startDragging);
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDragging);
-
-    function startDragging(e) {
+    playerMoveBtn.addEventListener('mousedown', (e) => {
         isDragging = true;
         startX = e.clientX;
         startY = e.clientY;
         startLeft = player.offsetLeft;
-        startTop = player.offsetTop;
-    }
+        startBottom = parseInt(getComputedStyle(player).bottom);
+        player.style.transition = 'none';
+    });
 
-    function drag(e) {
-        if (!isDragging) return;
-        e.preventDefault();
-        let newLeft = startLeft + e.clientX - startX;
-        let newTop = startTop + e.clientY - startY;
-        
-        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - player.offsetWidth));
-        newTop = Math.max(0, Math.min(newTop, window.innerHeight - player.offsetHeight));
-        
-        player.style.left = newLeft + 'px';
-        player.style.top = newTop + 'px';
-        player.style.right = 'auto';
-        player.style.bottom = 'auto';
-    }
-
-    function stopDragging() {
-        isDragging = false;
-    }
-
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
-        switch (e.key.toLowerCase()) {
-            case ' ':
-                e.preventDefault();
-                togglePlayPause();
-                break;
-            case 'arrowright':
-            case 'l':
-                playNext();
-                break;
-            case 'arrowleft':
-            case 'j':
-                playPrevious();
-                break;
-            case 'k':
-                togglePlayPause();
-                break;
-            case 'h':
-                player.classList.toggle('show');
-                break;
-            case 'm':
-                audio.muted = !audio.muted;
-                break;
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const deltaX = e.clientX - startX;
+            const deltaY = startY - e.clientY;
+            player.style.left = `${startLeft + deltaX}px`;
+            player.style.bottom = `${startBottom + deltaY}px`;
         }
     });
 
-    // Dark mode toggle
-    darkModeToggle.addEventListener('click', toggleDarkMode);
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        player.style.transition = '';
+    });
 
-    // Check for saved dark mode preference
-    if (localStorage.getItem('darkMode') === 'true') {
+    accountBtn.addEventListener('click', () => {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (loggedInUser) {
+            window.location.href = 'account.html';
+        } else {
+            authModal.style.display = 'flex';
+        }
+    });
+
+    loginTab.addEventListener('click', () => switchForm('login'));
+    signupTab.addEventListener('click', () => switchForm('signup'));
+
+    document.querySelectorAll('.cancel-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            authModal.style.display = 'none';
+        });
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+            authModal.style.display = 'none';
+        }
+    });
+
+    loginForm.addEventListener('submit', handleLogin);
+    signupForm.addEventListener('submit', handleSignup);
+
+
+    const savedLanguage = localStorage.getItem('language') || 'eng';
+    changeLanguage(savedLanguage);
+
+    const isDarkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+    if (isDarkMode) {
         document.body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = '<i class="bi bi-sun-fill text-white"></i>';
     }
+    updateThemeToggle();
 
-    // Load data from local storage
-    loadLikedSongsFromLocalStorage();
-    loadRecentlyPlayedFromLocalStorage();
+    const searchButton = document.querySelector('.search-button');
+    searchButton.style.transform = 'scale(1.5)';
+    searchButton.style.padding = '10px 20px';
 
-    // Initialize playlist of the day
-    playlistOfTheDay = [
-        new Song(1, "Master of None", "Beach House", "3:19", "Suki Waterhouse Johanna.mp3", "images/meremad.png"),
-        new Song(2, "Johanna", "Suki Waterhouse", "2:35", "songs/Johanna.mp3", "images/meremad.png"),
-        new Song(3, "The End.", "My Chemical Romance", "1:52", "songs/The_End..mp3", "images/meremad.png"),
-        new Song(4, "Failed at Math(s)", "Panchiko", "2:40", "songs/Failed_at_Math(s).mp3", "images/meremad.png"),
-        new Song(5, "Inference (1)", "Fog Lake", "2:14", "songs/Inference_(1).mp3", "images/meremad.png"),
-        new Song(6, "Rain Intermission", "Strawberry Guy", "3:56", "songs/Rain_Intermission.mp3", "images/meremad.png"),
-        new Song(7, "Myth", "Beach House", "4:18", "songs/Myth.mp3", "images/meremad.png"),
-        new Song(8, "Every Day's A Lesson In Humility", "Suki Waterhouse, Belle and Sebastian", "3:36", "songs/Every_Day's_A_Lesson_In_Humility.mp3", "images/meremad.png"),
-        new Song(9, "Falling Apart", "Slow Pulp", "2:46", "songs/Falling_Apart.mp3", "images/meremad.png"),
-        new Song(10, "All They Wanted", "Panchiko", "2:07", "songs/All_They_Wanted.mp3", "images/meremad.png")
-    ];
+    searchButton.addEventListener('click', showSearchResults);
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
-    displaySongList(playlistOfTheDay, 'playlistOfTheDayList');
+    const preferences = loadUserPreferences();
+    changeLanguage(preferences.language);
 
-    // Check if user data exists in local storage
-    if (isUserRegistered()) {
-        accountBtn.href = 'account.html';
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const language = this.getAttribute('data-lang');
+            changeLanguage(language);
+        });
+    });
+
+    if (preferences.darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+    updateThemeToggle();
+
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    const today = new Date();
+    document.getElementById('currentDate').textContent = today.toLocaleDateString(preferences.language === 'eng' ?
+        'en-US' : (preferences.language === 'rus' ? 'ru-RU' : 'kk-KZ'));
+
+    // Add event listeners for language buttons
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const language = this.getAttribute('data-lang');
+            changeLanguage(language);
+        });
+    });
+});
+
+function switchForm(formType) {
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+
+    if (formType === 'login') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        loginTab.classList.add('active');
+        signupTab.classList.remove('active');
     } else {
-        accountBtn.href = '#';
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+        loginTab.classList.remove('active');
+        signupTab.classList.add('active');
     }
-});
-
-// Save player state before unloading the page
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('playerState', JSON.stringify({
-        currentSongIndex: currentSongIndex,
-        currentTime: audio.currentTime,
-        isPlaying: isPlaying,
-        volume: audio.volume,
-        isShuffled: isShuffled,
-        isVisible: player.classList.contains('show')
-    }));
-});
-
-// Load player state when the page loads
-window.addEventListener('load', () => {
-    const savedState = JSON.parse(localStorage.getItem('playerState'));
-    if (savedState) {
-        currentSongIndex = savedState.currentSongIndex;
-        audio.currentTime = savedState.currentTime;
-        isPlaying = savedState.isPlaying;
-        audio.volume = savedState.volume;
-        isShuffled = savedState.isShuffled;
-
-        if (savedState.isVisible) {
-            showPlayer();
-        }
-
-        if (currentSongIndex < currentPlaylist.length) {
-            updatePlayerInfo(currentPlaylist[currentSongIndex]);
-            audio.src = currentPlaylist[currentSongIndex].audioSrc;
-            if (isPlaying) {
-                audio.play().catch(error => {
-                    console.error('Error playing audio:', error);
-                    // Handle the error (e.g., show a message to the user)
-                });
-            }
-            updatePlayPauseButton();
-        }
-    }
-});
+}

@@ -1,8 +1,6 @@
 const translations = {
     rus: {
         collections: "Коллекции",
-        podcasts: "Подкасты",
-        audiobooks: "Аудиокниги",
         settings: "Настройки",
         volume: "Громкость",
         playbackQuality: "Качество Воспроизведения",
@@ -14,11 +12,10 @@ const translations = {
         showCurrentTime: "Показать текущее время",
         footer: "Страница создана Мерекиевым Мертаем ИТ-2307",
         date: "Дата:",
+        currentTime: "Текущее время:"
     },
     kaz: {
         collections: "Жинақтар",
-        podcasts: "Подкасттар",
-        audiobooks: "Аудиокітаптар",
         settings: "Баптаулар",
         volume: "Дыбыс деңгейі",
         playbackQuality: "Ойнату сапасы",
@@ -30,11 +27,10 @@ const translations = {
         showCurrentTime: "Ағымдағы уақытты көрсету",
         footer: "Бетті Мерекеев Мертай IT-2307 жасады",
         date: "Күні:",
+        currentTime: "Қазіргі уақыт:"
     },
     eng: {
         collections: "Collections",
-        podcasts: "Podcasts",
-        audiobooks: "Audiobooks",
         settings: "Settings",
         volume: "Volume",
         playbackQuality: "Playback Quality",
@@ -46,6 +42,7 @@ const translations = {
         showCurrentTime: "Show Current Time",
         footer: "Page created by Merekeyev Mertay IT-2307",
         date: "Date:",
+        currentTime: "Current time:"
     }
 };
 
@@ -57,13 +54,20 @@ function changeLanguage(language) {
             element.textContent = translations[language][key];
         }
     });
-    localStorage.setItem('language', language);
+    saveUserPreferences('language', language);
+    updateLanguageButtons(language);
+}
+
+function updateLanguageButtons(activeLanguage) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === activeLanguage);
+    });
 }
 
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
     const isDarkMode = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode);
+    saveUserPreferences('darkMode', isDarkMode);
     updateThemeToggle();
     updateDarkModeSwitch(isDarkMode);
 }
@@ -71,7 +75,7 @@ function toggleTheme() {
 function updateThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const isDarkMode = document.body.classList.contains('dark-mode');
-    themeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill text-white"></i>' : '<i class="bi bi-moon-fill text-white"></i>';
+    themeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-fill"></i>';
 }
 
 function updateDarkModeSwitch(isDarkMode) {
@@ -79,20 +83,55 @@ function updateDarkModeSwitch(isDarkMode) {
     darkModeSwitch.checked = isDarkMode;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Load language preference
-    const savedLanguage = localStorage.getItem('language') || 'eng';
-    changeLanguage(savedLanguage);
+function saveUserPreferences(key, value) {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        loggedInUser[key] = value;
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    }
+    localStorage.setItem(key, JSON.stringify(value));
+}
 
-    // Load dark mode preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
+function loadUserPreferences() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        return {
+            language: loggedInUser.language || 'eng',
+            darkMode: loggedInUser.darkMode || false
+        };
+    }
+    return {
+        language: JSON.parse(localStorage.getItem('language')) || 'eng',
+        darkMode: JSON.parse(localStorage.getItem('darkMode')) || false
+    };
+}
+
+function showCurrentTime() {
+    const timeDisplay = document.getElementById('timeDisplay');
+    const currentTime = new Date().toLocaleTimeString();
+    const currentLanguage = loadUserPreferences().language;
+    timeDisplay.textContent = `${translations[currentLanguage].currentTime} ${currentTime}`;
+}
+
+function checkUserLogin() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!loggedInUser) {
+        window.location.href = 'home.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    checkUserLogin();
+
+    const preferences = loadUserPreferences();
+    changeLanguage(preferences.language);
+
+    if (preferences.darkMode) {
         document.body.classList.add('dark-mode');
     }
     updateThemeToggle();
-    updateDarkModeSwitch(savedDarkMode);
+    updateDarkModeSwitch(preferences.darkMode);
 
-    // Event listeners
     document.querySelectorAll('.lang-btn').forEach(button => {
         button.addEventListener('click', function() {
             const language = this.getAttribute('data-lang');
@@ -102,12 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
     document.getElementById('darkModeSwitch').addEventListener('change', toggleTheme);
-    document.getElementById('darkModeToggle').addEventListener('click', toggleTheme);
 
+    document.querySelector('.show-time-btn').addEventListener('click', showCurrentTime);
 
-    document.querySelector('.show-time-btn').addEventListener('click', function() {
-        const timeDisplay = document.getElementById('timeDisplay');
-        const currentTime = new Date().toLocaleTimeString();
-        timeDisplay.textContent = `${translations[savedLanguage].showCurrentTime}: ${currentTime}`;
-    });
+    // Set current date
+    const today = new Date();
+    document.getElementById('currentDate').textContent = today.toLocaleDateString();
 });

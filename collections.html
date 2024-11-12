@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolkyn - Collections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="collections.css">
+</head>
+<body>
+    <header class="header py-3">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="d-flex flex-column flex-md-row align-items-center mb-3 mb-md-0">
+                    <a class="navbar-brand text-white me-4" href="home.html">TOLKYN</a>
+                    <nav class="d-flex flex-wrap justify-content-center">
+                        <a class="nav-link mx-2 active" href="collections.html" data-translate="collections">Collections</a>
+                    </nav>
+                </div>
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="search-container-wrapper position-relative mx-2 mb-3 mb-md-0">
+                        <div class="search-container position-relative">
+                            <i class="bi bi-search search-icon text-white"></i>
+                            <input type="text" id="searchInput" class="form-control bg-transparent text-white border-2 border-white rounded-pill search-input" placeholder="Search..." data-translate="searchPlaceholder">
+                            <button class="search-button" data-translate="search">Search</button>
+                        </div>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link mx-2" href="#" id="darkModeToggle"><i class="bi bi-moon-fill text-white"></i></a>
+                        <a class="nav-link mx-2" href="settings.html"><i class="bi bi-gear text-white"></i></a>
+                        <a class="nav-link mx-2" href="#" id="accountBtn"><i class="bi bi-person-circle text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <h1 class="mb-4" data-translate="collections">Collections</h1>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWN8ZW58MHx8MHx8fDA%3D" alt="Top Hits" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="topHits">Top Hits</h3>
+                        <p data-translate="topHitsDesc">The hottest tracks right now</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGwlMjBtdXNpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Chill Vibes" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="chillVibes">Chill Vibes</h3>
+                        <p data-translate="chillVibesDesc">Relax and unwind with these tunes</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1434596922112-19c563067271?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya291dCUyMG11c2ljfGVufDB8fDB8fHww" alt="Workout Mix" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="workoutMix">Workout Mix</h3>
+                        <p data-translate="workoutMixDesc">Get pumped with these energetic tracks</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8OTBzJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D" alt="90s Nostalgia" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="90sNostalgia">90s Nostalgia</h3>
+                        <p data-translate="90sNostalgiaDesc">Take a trip down memory lane</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWNvdXN0aWMlMjBtdXNpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Acoustic Gems" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="acousticGems">Acoustic Gems</h3>
+                        <p data-translate="acousticGemsDesc">Stripped-down versions of your favorites</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlY3Ryb25pYyUyMG11c2ljfGVufDB8fDB8fHww" alt="Electronic Beats" class="collection-image">
+                    <div class="collection-info">
+                        <h3 data-translate="electronicBeats">Electronic Beats</h3>
+                        <p data-translate="electronicBeatsDesc">Cutting-edge electronic music</p>
+                        <button class="btn btn-primary" data-translate="playAll">Play All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5 mb-4" data-translate="featuredArtists">Featured Artists</h2>
+        <div class="row g-4">
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXJ0aXN0fGVufDB8fDB8fHww" alt="Artist 1" class="rounded-circle">
+                    <h4 data-translate="artistName1">John Doe</h4>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Artist 2" class="rounded-circle">
+                    <h4 data-translate="artistName2">Jane Smith</h4>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Artist 3" class="rounded-circle">
+                    <h4 data-translate="artistName3">Mike Johnson</h4>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Artist 4" class="rounded-circle">
+                    <h4 data-translate="artistName4">Emily Brown</h4>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Artist 5" class="rounded-circle">
+                    <h4 data-translate="artistName5">David Lee</h4>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Artist 6" class="rounded-circle">
+                    <h4 data-translate="artistName6">Sarah Wilson</h4>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer text-center py-3 mt-5">
+        <p class="mb-0" data-translate="footerCredit">Page created by AliKhan Kassymbekov IT-2307</p>
+        <p class="mb-0" id="currentDate"></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="collections.js"></script>
+</body>
+</html>

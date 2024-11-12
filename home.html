@@ -12,52 +12,55 @@
 <body>
     <header class="header py-3">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="d-flex flex-column flex-md-row align-items-center mb-3 mb-md-0">
                     <a class="navbar-brand text-white me-4" href="#">TOLKYN</a>
-                    <nav class="d-flex">
-                        <a class="nav-link mx-2" href="#">Collections</a>
-                        <a class="nav-link mx-2" href="#">Podcasts</a>
-                        <a class="nav-link mx-2" href="#">Audiobooks</a>
+                    <nav class="d-flex flex-wrap justify-content-center">
+                        <a class="nav-link mx-2" href="collections.html">Collections</a>
+                        
                     </nav>
                 </div>
-                <div class="d-flex align-items-center">
-                    <div class="search-container position-relative mx-2">
-                        <i class="bi bi-search search-icon text-white"></i>
-                        <input type="text" id="searchInput" class="form-control bg-transparent text-white border-2 border-white rounded-pill search-input" placeholder="Search...">
-                        <button class="search-button">Search</button>
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="search-container-wrapper position-relative mx-2 mb-3 mb-md-0">
+                        <div class="search-container position-relative">
+                            <i class="bi bi-search search-icon text-white"></i>
+                            <input type="text" id="searchInput" class="form-control bg-transparent text-white border-2 border-white rounded-pill search-input" placeholder="Search...">
+                            <button class="search-button">Search</button>
+                        </div>
                         <div id="searchResults" class="search-results"></div>
                     </div>
-                    <a class="nav-link mx-2" href="#" id="darkModeToggle"><i class="bi bi-moon-fill text-white"></i></a>
-                    <a class="nav-link mx-2" href="settings.html"><i class="bi bi-gear text-white"></i></a>
-                    <a class="nav-link mx-2" href="#" id="accountBtn"><i class="bi bi-person-circle text-white"></i></a>
+                    <div class="d-flex align-items-center">
+                        <a class="nav-link mx-2" href="#" id="darkModeToggle"><i class="bi bi-moon-fill text-white"></i></a>
+                        <a class="nav-link mx-2" href="settings.html"><i class="bi bi-gear text-white"></i></a>
+                        <a class="nav-link mx-2" href="#" id="accountBtn"><i class="bi bi-person-circle text-white"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="container my-5">
-        <h1 class="mb-4">Home</h1>
+        <h1 class="mb-4" data-translate="home">Home</h1>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
+            <div class="col-6 col-md-6 col-lg-3">
                 <div id="recentlyPlayed" class="recommendation-card">
                     <i class="bi bi-play-circle"></i>
                     <p class="mb-0">Recently Played</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-6 col-md-6 col-lg-3">
                 <div id="likedSongs" class="recommendation-card">
                     <i class="bi bi-heart"></i>
                     <p class="mb-0">Liked Songs</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-6 col-md-6 col-lg-3">
                 <div id="hotTracks" class="recommendation-card">
                     <i class="bi bi-music-note-beamed"></i>
                     <p class="mb-0">Hot tracks of the month</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-6 col-md-6 col-lg-3">
                 <div id="playlistOfTheDay" class="recommendation-card">
                     <i class="bi bi-headphones"></i>
                     <p class="mb-0">Playlist of the day</p>
@@ -98,7 +101,7 @@
         <section class="mt-5">
             <h2 class="fs-2 fw-bold mb-4">Podcasts and Audiobooks</h2>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-6 col-md-6 col-lg-3">
                     <div class="podcast-card">
                         <img src="images/podcast1.png" alt="Elon Musk" class="w-100">
                         <div class="p-3">
@@ -107,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-6 col-md-6 col-lg-3">
                     <div class="podcast-card">
                         <img src="images/podcast2.png" alt="The Hunter" class="w-100">
                         <div class="p-3">
@@ -116,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-6 col-md-6 col-lg-3">
                     <div class="podcast-card">
                         <img src="images/podcast3.png" alt="Pride and Prejudice" class="w-100">
                         <div class="p-3">
@@ -125,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-6 col-md-6 col-lg-3">
                     <div class="podcast-card">
                         <img src="images/podcast4.png" alt="Metamorphosis" class="w-100">
                         <div class="p-3">
@@ -168,50 +171,76 @@
         </div>
     </div>
 
+    
+    
     <div id="authModal" class="auth-modal">
         <div class="auth-modal-content">
-            <h2>Create Account</h2>
-            <form id="authForm">
-                <div class="name-surname-container">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                        <p class="error-message" id="nameError"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="surname">Surname</label>
-                        <input type="text" id="surname" required>
-                        <p class="error-message" id="surnameError"></p>
-                    </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Sign Up</button>
+            </div>
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                    <p class="error-message" id="loginEmailError"></p>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                    <p class="error-message" id="emailError"></p>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                    <p class="error-message" id="passwordError"></p>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" required>
-                    <p class="error-message" id="confirmPasswordError"></p>
-                </div>
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" required>
-                    <p class="error-message" id="ageError"></p>
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                    <p class="error-message" id="loginPasswordError"></p>
                 </div>
                 <div class="form-actions">
-                    <button type="button" id="cancelBtn">Cancel</button>
-                    <button type="submit">Complete Registration</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input type="text" id="signupName" required>
+                    <p class="error-message" id="signupNameError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="signupSurname">Surname</label>
+                    <input type="text" id="signupSurname" required>
+                    <p class="error-message" id="signupSurnameError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                    <p class="error-message" id="signupEmailError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                    <p class="error-message" id="signupPasswordError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required>
+                    <p class="error-message" id="signupConfirmPasswordError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="signupAge">Age</label>
+                    <input type="number" id="signupAge" required>
+                    <p class="error-message" id="signupAgeError"></p>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit">Sign Up</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <div id="accountPage" class="account-page">
+        <h2>Welcome, <span id="accountName"></span></h2>
+        <p>Email: <span id="accountEmail"></span></p>
+        <p>Age: <span id="accountAge"></span></p>
+        <button id="logoutBtn">Logout</button>
+    </div>
+    
     <footer class="footer text-center py-3 mt-5">
         <p class="mb-0">Page created by AliKhan Kassymbekov IT-2307</p>
         <p class="mb-0">Date: 09.09.2024</p>
@@ -219,5 +248,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="home.js"></script>
+    
 </body>
 </html>

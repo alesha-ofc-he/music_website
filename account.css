@@ -186,3 +186,23 @@ body {
 .popup-content {
     animation: fadeIn 0.3s ease-out;
 }
+
+@media (max-width: 768px) {
+    .main-account {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .account-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .account-name {
+        font-size: 1.5rem;
+    }
+
+    .account-email {
+        font-size: 1rem;
+    }
+}
